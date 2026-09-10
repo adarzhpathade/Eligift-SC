@@ -68,7 +68,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## 📱 Mobile App (Capacitor)
 
-Eligify AI is designed to run seamlessly on Android using Capacitor. It connects directly to the hosted web application (`https://eligify-gamma.vercel.app`) while leveraging native device features.
+Eligify AI is designed to run seamlessly on Android using Capacitor. It connects directly to the hosted web application (`https://eligifyai.vercel.app`) while leveraging native device features.
 
 To sync the project with the native Android code:
 ```bash

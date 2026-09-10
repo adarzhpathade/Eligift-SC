@@ -5,7 +5,7 @@ const config: CapacitorConfig = {
   appName: 'Eligify AI',
   webDir: 'public',
   server: {
-    url: 'https://eligify-gamma.vercel.app',
+    url: 'https://eligifyai.vercel.app',
     cleartext: true
   },
   plugins: {
