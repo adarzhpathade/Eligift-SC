@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Eligify | Prime Minister's Employment Generation Programme</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#898a84",
+                        "on-surface-variant": "#444748",
+                        "on-surface": "#1b1c1c",
+                        "tertiary-fixed": "#e3e3db",
+                        "tertiary": "#0b0d09",
+                        "on-secondary-fixed": "#1c1d01",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#e5e2e1",
+                        "error-container": "#ffdad6",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-background": "#1b1c1c",
+                        "primary-container": "#222222",
+                        "outline-variant": "#c4c7c7",
+                        "surface-bright": "#fbf9f8",
+                        "on-secondary-container": "#64653e",
+                        "surface-container-low": "#f5f3f3",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "on-primary-container": "#8a8989",
+                        "secondary-fixed-dim": "#c9c99b",
+                        "error": "#ba1a1a",
+                        "secondary": "#5f613a",
+                        "surface-container": "#efeded",
+                        "inverse-surface": "#303031",
+                        "secondary-container": "#e2e3b2",
+                        "outline": "#747878",
+                        "on-secondary-fixed-variant": "#484925",
+                        "surface-container-high": "#e9e8e7",
+                        "surface-tint": "#5f5e5e",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#f2f0f0",
+                        "surface-dim": "#dbdad9",
+                        "primary": "#0b0c0c",
+                        "inverse-primary": "#c8c6c5",
+                        "on-primary-fixed": "#1b1c1c",
+                        "on-secondary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#e5e5b5",
+                        "on-tertiary-fixed": "#1a1c18",
+                        "on-primary-fixed-variant": "#474746",
+                        "surface-container-highest": "#e4e2e2",
+                        "surface": "#fbf9f8",
+                        "tertiary-container": "#21231e",
+                        "surface-variant": "#e4e2e2",
+                        "background": "#FAFAF2",
+                        "accent": "#FEFECC",
+                        "on-tertiary-fixed-variant": "#464742",
+                        "tertiary-fixed-dim": "#c6c7c0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "20px": "20px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "24px",
+                        "stack-lg": "48px",
+                        "margin-desktop": "64px",
+                        "unit": "8px",
+                        "stack-sm": "12px",
+                        "gutter": "24px",
+                        "container-max": "1440px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #FAFAF2;
+            color: #222222;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .premium-card {
+            background: #FFFFFF;
+            border-radius: 20px;
+            box-shadow: 0px 10px 30px rgba(34, 34, 34, 0.05);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .premium-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0px 20px 50px rgba(34, 34, 34, 0.1);
+        }
+        .skeleton {
+            background: linear-gradient(90deg, #efeded 25%, #fbf9f8 50%, #efeded 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        .sticky-bar {
+            box-shadow: 0px -10px 30px rgba(34, 34, 34, 0.05);
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-50 flex justify-between items-center px-margin-desktop py-4 w-full bg-surface/80 backdrop-blur-md shadow-[0px_10px_30px_rgba(34,34,34,0.05)]">
+<div class="flex items-center gap-6">
+<span class="font-display-lg text-[24px] font-bold text-primary">Eligify</span>
+<div class="hidden md:block h-6 w-[1px] bg-outline-variant/30"></div>
+<span class="hidden md:block font-label-md text-on-surface-variant max-w-[300px] truncate">Prime Minister's Employment Generation Programme</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[24px]">search</span>
+</button>
+<button class="p-2 rounded-full hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-[24px]">menu</span>
+</button>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-stack-lg space-y-stack-lg">
+<!-- Hero Section -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<div class="lg:col-span-7 space-y-stack-sm">
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-3 py-1 rounded-full bg-green-100 text-green-800 font-label-md text-label-sm">Open</span>
+<span class="px-3 py-1 rounded-full bg-accent text-on-surface font-label-md text-label-sm">High Match</span>
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-sm">Central Scheme</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-primary leading-tight">Prime Minister's Employment Generation Programme</h1>
+<p class="font-headline-md text-headline-md text-on-surface-variant">Ministry of Micro, Small and Medium Enterprises (MSME)</p>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl pt-2">
+                    A credit linked subsidy programme aimed at generating self-employment opportunities through establishment of micro-enterprises in the non-farm sector.
+                </p>
+</div>
+<div class="lg:col-span-5">
+<div class="premium-card p-stack-md bg-white border border-outline-variant/10">
+<div class="flex justify-between items-start mb-6">
+<div>
+<span class="text-label-sm font-label-md uppercase tracking-wider text-on-surface-variant">Your Eligibility</span>
+<div class="flex items-baseline gap-1 mt-1">
+<span class="text-[56px] font-bold text-primary">98</span>
+<span class="text-headline-md font-bold text-on-surface-variant">%</span>
+</div>
+</div>
+<div class="w-16 h-16 rounded-full border-[6px] border-accent flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[32px]" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+</div>
+<p class="text-body-md text-on-surface-variant mb-8">
+                        Based on your profile, you are highly likely to qualify for this scheme. Your manufacturing sector focus aligns with priority categories.
+                    </p>
+<div class="flex flex-col gap-3">
+<button class="w-full h-14 bg-primary text-white rounded-xl font-label-md hover:bg-on-surface transition-all active:scale-95 flex items-center justify-center gap-2">
+                            Apply Now
+                            <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<button class="w-full h-14 border border-primary text-primary rounded-xl font-label-md hover:bg-surface-container-low transition-all active:scale-95">
+                            Save Scheme
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Benefits Grid -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<div class="premium-card p-6 flex flex-col gap-3">
+<span class="material-symbols-outlined text-primary">payments</span>
+<p class="text-label-sm text-on-surface-variant font-label-md uppercase">Subsidy Amount</p>
+<p class="text-headline-md font-bold">Up to 35%</p>
+</div>
+<div class="premium-card p-6 flex flex-col gap-3">
+<span class="material-symbols-outlined text-primary">account_balance</span>
+<p class="text-label-sm text-on-surface-variant font-label-md uppercase">Financial Assistance</p>
+<p class="text-headline-md font-bold">Bank Credit Linked</p>
+</div>
+<div class="premium-card p-6 flex flex-col gap-3">
+<span class="material-symbols-outlined text-primary">category</span>
+<p class="text-label-sm text-on-surface-variant font-label-md uppercase">Scheme Category</p>
+<p class="text-headline-md font-bold">Entrepreneurship</p>
+</div>
+<div class="premium-card p-6 flex flex-col gap-3">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<p class="text-label-sm text-on-surface-variant font-label-md uppercase">Coverage</p>
+<p class="text-headline-md font-bold">Rural / Urban</p>
+</div>
+</section>
+<!-- AI Recommendation Panel -->
+<section class="bg-accent rounded-20px p-stack-md flex flex-col md:flex-row items-center gap-stack-md border border-on-surface-variant/5">
+<div class="w-16 h-16 shrink-0 rounded-full bg-white flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-primary text-[32px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div class="space-y-1">
+<h3 class="font-headline-md text-headline-md text-primary">Eligify AI Insight</h3>
+<p class="text-body-lg font-medium text-on-surface">Our AI notes your residence in a rural area and manufacturing background makes you a perfect fit for the 35% subsidy tier. This combination increases your approval probability by 42%.</p>
+</div>
+</section>
+<!-- Main Content Area: Overview & Checklist -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-stack-lg">
+<div class="lg:col-span-8 space-y-stack-lg">
+<!-- Scheme Overview -->
+<section class="space-y-stack-sm">
+<h2 class="font-headline-lg text-headline-lg text-primary">Scheme Overview</h2>
+<div class="prose prose-lg max-w-none text-on-surface-variant space-y-4">
+<p class="font-body-lg">The Prime Minister's Employment Generation Programme (PMEGP) is a credit-linked subsidy scheme which is a merger of two schemes, namely Prime Minister's Rojgar Yojana (PMRY) and Rural Employment Generation Programme (REGP). The scheme is implemented by Khadi and Village Industries Commission (KVIC) functioning as the nodal agency at the national level.</p>
+<p class="font-body-lg">At the state level, the scheme is implemented through State KVIC Directorates, State Khadi and Village Industries Boards (KVIBs), District Industries Centres (DICs) and banks. The maximum cost of the project/unit admissible in manufacturing sector is ₹50 lakhs and in the business/service sector, it is ₹20 lakhs.</p>
+</div>
+</section>
+<!-- Eligibility Checklist -->
+<section class="space-y-stack-sm">
+<div class="flex justify-between items-end">
+<h2 class="font-headline-lg text-headline-lg text-primary">Eligibility Checklist</h2>
+<span class="font-label-md text-primary">100% Completed</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary transition-all duration-1000" style="width: 100%;"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+<div class="premium-card p-5 flex items-center gap-4 bg-white">
+<span class="material-symbols-outlined text-green-600 bg-green-50 p-2 rounded-full">check_circle</span>
+<div>
+<p class="font-label-md text-primary">Age (18+)</p>
+<p class="text-label-sm text-on-surface-variant">Your age: 28 years</p>
+</div>
+</div>
+<div class="premium-card p-5 flex items-center gap-4 bg-white">
+<span class="material-symbols-outlined text-green-600 bg-green-50 p-2 rounded-full">check_circle</span>
+<div>
+<p class="font-label-md text-primary">Education (VIII Pass)</p>
+<p class="text-label-sm text-on-surface-variant">Post Graduate degree verified</p>
+</div>
+</div>
+<div class="premium-card p-5 flex items-center gap-4 bg-white">
+<span class="material-symbols-outlined text-green-600 bg-green-50 p-2 rounded-full">check_circle</span>
+<div>
+<p class="font-label-md text-primary">New Enterprise</p>
+<p class="text-label-sm text-on-surface-variant">First-time entrepreneur status</p>
+</div>
+</div>
+<div class="premium-card p-5 flex items-center gap-4 bg-white">
+<span class="material-symbols-outlined text-green-600 bg-green-50 p-2 rounded-full">check_circle</span>
+<div>
+<p class="font-label-md text-primary">Income Limit</p>
+<p class="text-label-sm text-on-surface-variant">Below upper ceiling criteria</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Required Documents -->
+<section class="space-y-stack-sm">
+<h2 class="font-headline-lg text-headline-lg text-primary">Required Documents</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="premium-card p-4 border border-outline-variant/10 relative overflow-hidden group">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-on-surface-variant">badge</span>
+<span class="text-[10px] font-bold px-2 py-0.5 rounded bg-green-100 text-green-800 uppercase tracking-tighter">Verified</span>
+</div>
+<p class="font-label-md text-primary">Aadhaar Card</p>
+<p class="text-label-sm text-on-surface-variant">Identity &amp; Residence</p>
+<div class="absolute inset-x-0 bottom-0 h-1 bg-green-600/20 group-hover:bg-green-600 transition-colors"></div>
+</div>
+<div class="premium-card p-4 border border-outline-variant/10 relative overflow-hidden group">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-on-surface-variant">credit_card</span>
+<span class="text-[10px] font-bold px-2 py-0.5 rounded bg-green-100 text-green-800 uppercase tracking-tighter">Verified</span>
+</div>
+<p class="font-label-md text-primary">PAN Card</p>
+<p class="text-label-sm text-on-surface-variant">Tax Identification</p>
+<div class="absolute inset-x-0 bottom-0 h-1 bg-green-600/20 group-hover:bg-green-600 transition-colors"></div>
+</div>
+<div class="premium-card p-4 border border-outline-variant/10 relative overflow-hidden group">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-on-surface-variant">account_balance_wallet</span>
+<span class="text-[10px] font-bold px-2 py-0.5 rounded bg-green-100 text-green-800 uppercase tracking-tighter">Verified</span>
+</div>
+<p class="font-label-md text-primary">Income Proof</p>
+<p class="text-label-sm text-on-surface-variant">Income Certificate</p>
+<div class="absolute inset-x-0 bottom-0 h-1 bg-green-600/20 group-hover:bg-green-600 transition-colors"></div>
+</div>
+</div>
+</section>
+</div>
+<!-- Sidebar Content -->
+<div class="lg:col-span-4 space-y-stack-lg">
+<!-- Application Process -->
+<section class="premium-card p-6 border border-outline-variant/5">
+<h3 class="font-headline-md text-headline-md text-primary mb-6">Application Process</h3>
+<div class="relative space-y-8 pl-8">
+<div class="absolute left-[11px] top-2 bottom-2 w-[2px] bg-outline-variant/30"></div>
+<div class="relative">
+<div class="absolute -left-[27px] w-[14px] h-[14px] rounded-full bg-primary border-4 border-white ring-1 ring-primary"></div>
+<p class="font-label-md text-primary">Profile Verification</p>
+<p class="text-label-sm text-on-surface-variant">Complete your Eligify profile with KYC documents.</p>
+</div>
+<div class="relative">
+<div class="absolute -left-[27px] w-[14px] h-[14px] rounded-full bg-outline-variant border-4 border-white ring-1 ring-outline-variant"></div>
+<p class="font-label-md text-primary">Document Upload</p>
+<p class="text-label-sm text-on-surface-variant">Submit scheme-specific manufacturing project report.</p>
+</div>
+<div class="relative">
+<div class="absolute -left-[27px] w-[14px] h-[14px] rounded-full bg-outline-variant border-4 border-white ring-1 ring-outline-variant"></div>
+<p class="font-label-md text-primary">Bank Appraisal</p>
+<p class="text-label-sm text-on-surface-variant">Loan sanctioning by selected nodal bank branch.</p>
+</div>
+<div class="relative">
+<div class="absolute -left-[27px] w-[14px] h-[14px] rounded-full bg-outline-variant border-4 border-white ring-1 ring-outline-variant"></div>
+<p class="font-label-md text-primary">Final Approval</p>
+<p class="text-label-sm text-on-surface-variant">Subsidy disbursement after verification.</p>
+</div>
+</div>
+</section>
+<!-- Important Dates -->
+<section class="premium-card p-6 border border-outline-variant/5">
+<h3 class="font-headline-md text-headline-md text-primary mb-6">Important Dates</h3>
+<div class="space-y-4">
+<div class="flex justify-between items-center py-2 border-b border-outline-variant/10">
+<div>
+<p class="text-label-sm text-on-surface-variant">Start Date</p>
+<p class="font-label-md text-primary">Apr 1, 2024</p>
+</div>
+<span class="material-symbols-outlined text-green-600">event_available</span>
+</div>
+<div class="flex justify-between items-center py-2 border-b border-outline-variant/10">
+<div>
+<p class="text-label-sm text-on-surface-variant">Closing Date</p>
+<p class="font-label-md text-primary">Oct 31, 2024</p>
+</div>
+<span class="material-symbols-outlined text-error">event_busy</span>
+</div>
+<div class="flex justify-between items-center py-2">
+<div>
+<p class="text-label-sm text-on-surface-variant">Verification Period</p>
+<p class="font-label-md text-primary">Nov 15, 2024 onwards</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">assignment_turned_in</span>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Similar Schemes Carousel -->
+<section class="space-y-stack-sm pt-stack-md">
+<h2 class="font-headline-lg text-headline-lg text-primary">Similar Schemes for You</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter overflow-x-auto pb-4">
+<div class="premium-card p-6 min-w-[300px] border border-outline-variant/5">
+<div class="flex justify-between items-start mb-4">
+<span class="px-2 py-1 bg-accent/50 text-[10px] font-bold rounded uppercase">92% Match</span>
+<span class="material-symbols-outlined text-on-surface-variant">bookmark</span>
+</div>
+<h4 class="font-headline-md text-[18px] mb-2">MUDRA Loan (Shishu)</h4>
+<p class="text-label-sm text-on-surface-variant mb-6 line-clamp-2">Micro Units Development &amp; Refinance Agency Ltd. for loans up to ₹50,000.</p>
+<button class="text-primary font-label-md flex items-center gap-1 hover:gap-2 transition-all">View Details <span class="material-symbols-outlined text-[18px]">chevron_right</span></button>
+</div>
+<div class="premium-card p-6 min-w-[300px] border border-outline-variant/5">
+<div class="flex justify-between items-start mb-4">
+<span class="px-2 py-1 bg-accent/50 text-[10px] font-bold rounded uppercase">85% Match</span>
+<span class="material-symbols-outlined text-on-surface-variant">bookmark</span>
+</div>
+<h4 class="font-headline-md text-[18px] mb-2">CMEGP</h4>
+<p class="text-label-sm text-on-surface-variant mb-6 line-clamp-2">Chief Minister's Employment Generation Programme for state-specific entrepreneurship.</p>
+<button class="text-primary font-label-md flex items-center gap-1 hover:gap-2 transition-all">View Details <span class="material-symbols-outlined text-[18px]">chevron_right</span></button>
+</div>
+<div class="premium-card p-6 min-w-[300px] border border-outline-variant/5">
+<div class="flex justify-between items-start mb-4">
+<span class="px-2 py-1 bg-accent/50 text-[10px] font-bold rounded uppercase">78% Match</span>
+<span class="material-symbols-outlined text-on-surface-variant">bookmark</span>
+</div>
+<h4 class="font-headline-md text-[18px] mb-2">Stand-Up India</h4>
+<p class="text-label-sm text-on-surface-variant mb-6 line-clamp-2">Facilitating bank loans between ₹10 lakh and ₹1 Crore to SC/ST borrowers.</p>
+<button class="text-primary font-label-md flex items-center gap-1 hover:gap-2 transition-all">View Details <span class="material-symbols-outlined text-[18px]">chevron_right</span></button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-stack-md px-margin-desktop flex flex-col md:flex-row justify-between items-center bg-surface-container-lowest border-t border-outline-variant/20 gap-4 mt-stack-lg pb-32">
+<div class="flex flex-col items-center md:items-start">
+<span class="font-label-md text-label-md font-bold text-primary">Eligify</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant text-center md:text-left">© 2024 Department of Civic Innovation. All rights reserved.</span>
+</div>
+<div class="flex gap-margin-mobile">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:underline transition-all" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:underline transition-all" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:underline transition-all" href="#">Accessibility</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:underline transition-all" href="#">Contact Us</a>
+</div>
+</footer>
+<!-- Sticky Bottom Bar -->
+<div class="fixed bottom-0 inset-x-0 bg-white/90 backdrop-blur-xl sticky-bar z-50 border-t border-outline-variant/10 px-margin-desktop py-4 hidden md:block">
+<div class="max-w-container-max mx-auto flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="flex flex-col">
+<span class="font-label-md text-primary">PMEGP Scheme</span>
+<span class="text-label-sm text-on-surface-variant">Central Government</span>
+</div>
+<div class="h-8 w-[1px] bg-outline-variant/30"></div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+<span class="font-label-md text-green-700 font-bold">98% Match</span>
+</div>
+</div>
+<div class="flex gap-4">
+<button class="h-12 px-8 border border-primary text-primary rounded-xl font-label-md hover:bg-surface-container-low transition-all active:scale-95">
+                    Check Documents
+                </button>
+<button class="h-12 px-12 bg-primary text-white rounded-xl font-label-md hover:bg-on-surface transition-all active:scale-95">
+                    Apply Now
+                </button>
+</div>
+</div>
+</div>
+<!-- Mobile Sticky Bottom Bar -->
+<div class="fixed bottom-0 inset-x-0 bg-white sticky-bar z-50 border-t border-outline-variant/10 p-4 md:hidden">
+<div class="flex gap-3">
+<button class="flex-1 h-12 bg-surface-container-low text-primary rounded-xl font-label-md active:scale-95">
+                Check Documents
+            </button>
+<button class="flex-1 h-12 bg-primary text-white rounded-xl font-label-md active:scale-95">
+                Apply Now
+            </button>
+</div>
+</div>
+<script>
+        // Simple micro-interaction for document cards
+        document.querySelectorAll('.premium-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                // Subtle interaction logic if needed
+            });
+        });
+    </script>
+</body></html>

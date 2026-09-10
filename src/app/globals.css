@@ -1,0 +1,334 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ──────────────────────────────────────────────
+   View Transition API Theme Toggle
+   ────────────────────────────────────────────── */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+/* When transitioning to Light (new is Light) -> Light on top */
+::view-transition-old(root) {
+  z-index: 1;
+}
+::view-transition-new(root) {
+  z-index: 2;
+}
+/* When transitioning to Dark (new is Dark, so HTML has .dark class) -> Light (old) on top */
+.dark::view-transition-old(root) {
+  z-index: 2;
+}
+.dark::view-transition-new(root) {
+  z-index: 1;
+}
+
+/* ──────────────────────────────────────────────
+   Eligify AI Design Tokens
+   Source of truth: context/ui_tokens.md
+   ────────────────────────────────────────────── */
+
+@theme inline {
+  /* ── Shadcn compatibility ── */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-plus-jakarta);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-plus-jakarta);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+
+  /* ── Radius (shadcn compat) ── */
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* ── Eligify: Surface Scale ── */
+  --color-eg-background: #FAFAF2;
+  --color-eg-surface: #FFFFFF;
+  --color-eg-surface-dim: #DBDAD9;
+  --color-eg-surface-low: #F5F3F3;
+  --color-eg-surface-container: #EFEDED;
+  --color-eg-surface-high: #E9E8E7;
+  --color-eg-surface-highest: #E4E2E2;
+
+  /* ── Eligify: Text ── */
+  --color-eg-text-primary: #222222;
+  --color-eg-text-secondary: #666666;
+  --color-eg-text-muted: #8A8989;
+  --color-eg-text-disabled: #A9A8A8;
+  --color-eg-text-inverse: #FFFFFF;
+
+  /* ── Eligify: Accent ── */
+  --color-eg-accent: #FEFECC;
+
+  /* ── Eligify: Border ── */
+  --color-eg-border: rgba(34, 34, 34, 0.1);
+  --color-eg-border-strong: rgba(34, 34, 34, 0.2);
+  --color-eg-border-focus: #222222;
+
+  /* ── Eligify: Status ── */
+  --color-eg-success: #4CAF50;
+  --color-eg-success-light: #E8F5E9;
+  --color-eg-success-dark: #2E7D32;
+  --color-eg-warning: #F59E0B;
+  --color-eg-warning-light: #FEF3C7;
+  --color-eg-error: #BA1A1A;
+  --color-eg-error-light: #FFDAD6;
+  --color-eg-info: #2563EB;
+  --color-eg-info-light: #DBEAFE;
+
+  /* ── Eligify: AI ── */
+  --color-eg-ai-background: #FEFECC;
+  --color-eg-ai-border: #F3F3A0;
+  --color-eg-ai-text: #222222;
+
+  /* ── Eligify: Match Score ── */
+  --color-eg-match-high: #4CAF50;
+  --color-eg-match-high-light: #E8F5E9;
+  --color-eg-match-medium: #F59E0B;
+  --color-eg-match-medium-light: #FEF3C7;
+  --color-eg-match-low: #BA1A1A;
+  --color-eg-match-low-light: #FFDAD6;
+
+  /* ── Eligify: Shadows ── */
+  --shadow-eg-sm: 0px 10px 30px rgba(34,34,34,0.05);
+  --shadow-eg-md: 0px 20px 50px rgba(34,34,34,0.1);
+  --shadow-eg-hover: 0px 25px 60px rgba(34,34,34,0.12);
+
+  /* ── Eligify: Motion ── */
+  --duration-fast: 200ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ── Eligify: Z-index ── */
+  --z-base: 1;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-overlay: 500;
+  --z-modal: 1000;
+  --z-toast: 1200;
+  --z-cursor: 9999;
+}
+
+:root {
+  --background: #FAFAF2;
+  --foreground: #222222;
+  --card: #FFFFFF;
+  --card-foreground: #222222;
+  --popover: #FFFFFF;
+  --popover-foreground: #222222;
+  --primary: #222222;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F5F3F3;
+  --secondary-foreground: #222222;
+  --muted: #EFEDED;
+  --muted-foreground: #666666;
+  --accent: #FEFECC;
+  --accent-foreground: #222222;
+  --destructive: #BA1A1A;
+  --border: rgba(34, 34, 34, 0.1);
+  --input: rgba(34, 34, 34, 0.1);
+  --ring: #222222;
+  --chart-1: #222222;
+  --chart-2: #666666;
+  --chart-3: #8A8989;
+  --chart-4: #A9A8A8;
+  --chart-5: #DBDAD9;
+  --radius: 0.75rem;
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #222222;
+  --sidebar-primary: #222222;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #FEFECC;
+  --sidebar-accent-foreground: #222222;
+  --sidebar-border: rgba(34, 34, 34, 0.1);
+  --sidebar-ring: #222222;
+
+  --font-plus-jakarta: "Plus Jakarta Sans", sans-serif;
+}
+
+/* ──────────────────────────────────────────────
+   Dark Mode Palette
+   Warm charcoal counterpart to the creamy light theme.
+   Activate by adding class="dark" to <html>.
+   ────────────────────────────────────────────── */
+.dark {
+  /* ── Core Surfaces ── */
+  --background: #0F0F0E;
+  --foreground: #E8E6E1;
+  --card: #1A1918;
+  --card-foreground: #E8E6E1;
+  --popover: #1A1918;
+  --popover-foreground: #E8E6E1;
+
+  /* ── Primary ── */
+  --primary: #E8E6E1;
+  --primary-foreground: #0F0F0E;
+
+  /* ── Secondary ── */
+  --secondary: #1E1D1C;
+  --secondary-foreground: #E8E6E1;
+
+  /* ── Muted ── */
+  --muted: #252423;
+  --muted-foreground: #9C9A95;
+
+  /* ── Accent ── */
+  --accent: #D4C89C;
+  --accent-foreground: #0F0F0E;
+
+  /* ── Destructive ── */
+  --destructive: #CF6679;
+
+  /* ── Borders & Inputs ── */
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.08);
+  --ring: #D4D48A;
+
+  /* ── Charts ── */
+  --chart-1: #E8E6E1;
+  --chart-2: #9C9A95;
+  --chart-3: #706E6A;
+  --chart-4: #504E4B;
+  --chart-5: #353432;
+
+  /* ── Sidebar ── */
+  --sidebar: #161615;
+  --sidebar-foreground: #E8E6E1;
+  --sidebar-primary: #E8E6E1;
+  --sidebar-primary-foreground: #0F0F0E;
+  --sidebar-accent: #3A3A1E;
+  --sidebar-accent-foreground: #FEFECC;
+  --sidebar-border: rgba(255, 255, 255, 0.06);
+  --sidebar-ring: #D4D48A;
+}
+
+/* ── Eligify Dark: Surface Scale ── */
+.dark {
+  --color-eg-background: #0F0F0E;
+  --color-eg-surface: #1A1918;
+  --color-eg-surface-dim: #121211;
+  --color-eg-surface-low: #161615;
+  --color-eg-surface-container: #1E1D1C;
+  --color-eg-surface-high: #252423;
+  --color-eg-surface-highest: #2A2928;
+
+  /* ── Eligify Dark: Text ── */
+  --color-eg-text-primary: #E8E6E1;
+  --color-eg-text-secondary: #9C9A95;
+  --color-eg-text-muted: #706E6A;
+  --color-eg-text-disabled: #504E4B;
+  --color-eg-text-inverse: #0F0F0E;
+
+  /* ── Eligify Dark: Accent ── */
+  --color-eg-accent: #D4C89C;
+
+  /* ── Eligify Dark: Border ── */
+  --color-eg-border: rgba(255, 255, 255, 0.08);
+  --color-eg-border-strong: rgba(255, 255, 255, 0.14);
+  --color-eg-border-focus: #D4D48A;
+
+  /* ── Eligify Dark: Status ── */
+  --color-eg-success: #66BB6A;
+  --color-eg-success-light: #1B2E1C;
+  --color-eg-success-dark: #81C784;
+  --color-eg-warning: #FFCA28;
+  --color-eg-warning-light: #2E2810;
+  --color-eg-error: #CF6679;
+  --color-eg-error-light: #2E1518;
+  --color-eg-info: #64B5F6;
+  --color-eg-info-light: #0D1F2E;
+
+  /* ── Eligify Dark: AI ── */
+  --color-eg-ai-background: #2A2A14;
+  --color-eg-ai-border: #4A4A2A;
+  --color-eg-ai-text: #FEFECC;
+
+  /* ── Eligify Dark: Match Score ── */
+  --color-eg-match-high: #66BB6A;
+  --color-eg-match-high-light: #1B2E1C;
+  --color-eg-match-medium: #FFCA28;
+  --color-eg-match-medium-light: #2E2810;
+  --color-eg-match-low: #CF6679;
+  --color-eg-match-low-light: #2E1518;
+
+  /* ── Eligify Dark: Shadows ── */
+  --shadow-eg-sm: 0px 10px 30px rgba(0, 0, 0, 0.25);
+  --shadow-eg-md: 0px 20px 50px rgba(0, 0, 0, 0.35);
+  --shadow-eg-hover: 0px 25px 60px rgba(0, 0, 0, 0.40);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    /* Hide scrollbar for Firefox, IE and Edge */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  *::-webkit-scrollbar {
+    display: none;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-plus-jakarta);
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    padding-left: env(safe-area-inset-left, 0px);
+    padding-right: env(safe-area-inset-right, 0px);
+  }
+
+  html {
+    @apply font-sans;
+  }
+}
+
+@layer utilities {
+  .card-list-blur-others:has(.card-item:hover) .card-item:not(:hover) {
+    filter: blur(3px);
+    opacity: 0.6;
+  }
+  
+  .card-item {
+    transition: filter 0.3s ease, opacity 0.3s ease;
+  }
+}

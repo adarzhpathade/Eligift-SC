@@ -1,0 +1,295 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Eligify - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#64653e",
+                        "surface-tint": "#5f5e5e",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f5f3f3",
+                        "surface": "#fbf9f8",
+                        "tertiary-container": "#21231e",
+                        "on-surface": "#1b1c1c",
+                        "surface-container-highest": "#e4e2e2",
+                        "tertiary-fixed-dim": "#c6c7c0",
+                        "on-tertiary-container": "#898a84",
+                        "primary": "#0b0c0c",
+                        "outline-variant": "#c4c7c7",
+                        "on-tertiary-fixed-variant": "#464742",
+                        "on-tertiary-fixed": "#1a1c18",
+                        "tertiary": "#0b0d09",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#e9e8e7",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed-variant": "#474746",
+                        "surface-bright": "#fbf9f8",
+                        "primary-fixed": "#e5e2e1",
+                        "secondary-fixed": "#e5e5b5",
+                        "on-secondary-fixed-variant": "#484925",
+                        "background": "#fbf9f8",
+                        "primary-container": "#222222",
+                        "on-primary-fixed": "#1b1c1c",
+                        "on-surface-variant": "#444748",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#c9c99b",
+                        "inverse-surface": "#303031",
+                        "surface-container": "#efeded",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "outline": "#747878",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-on-surface": "#f2f0f0",
+                        "tertiary-fixed": "#e3e3db",
+                        "secondary": "#5f613a",
+                        "on-secondary-fixed": "#1c1d01",
+                        "on-background": "#1b1c1c",
+                        "surface-dim": "#dbdad9",
+                        "secondary-container": "#e2e3b2",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e4e2e2",
+                        "on-primary-container": "#8a8989",
+                        "inverse-primary": "#c8c6c5",
+                        "error": "#ba1a1a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "gutter": "24px",
+                        "container-max": "1440px",
+                        "stack-lg": "48px",
+                        "unit": "8px",
+                        "margin-desktop": "64px",
+                        "stack-sm": "12px",
+                        "stack-md": "24px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", { "lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "1.4", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #FAFAF2; /* Warm Cream background */
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0px 10px 30px rgba(34, 34, 34, 0.05);
+            border-radius: 20px;
+            transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0px 15px 40px rgba(34, 34, 34, 0.08);
+        }
+        .nav-link {
+            transition: color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .skeleton {
+            background: linear-gradient(90deg, #e4e2e2 25%, #f5f3f3 50%, #e4e2e2 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+    </style>
+</head>
+<body class="text-on-surface antialiased min-h-screen flex flex-col">
+<!-- Top Navigation -->
+<nav class="bg-surface shadow-[0px_10px_30px_rgba(34,34,34,0.05)] w-full top-0 sticky z-50"><div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-16 flex items-center justify-between"><div class="font-label-md text-label-md font-bold text-primary">Eligify</div><div class="flex items-center gap-4"><button class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors">Logout</button><button class="material-symbols-outlined text-primary">menu</button></div></div></nav>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-stack-lg">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Hero Bento Card -->
+<div class="glass-card p-stack-lg lg:col-span-2 flex flex-col justify-center">
+<h1 class="text-[48px] md:text-[64px] font-bold text-primary mb-unit leading-tight">Hello <span class="italic">Rahul</span></h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">12 government schemes match your profile</p>
+</div>
+<!-- Metric 1 -->
+<div class="glass-card p-stack-md flex flex-col justify-between min-h-[140px] lg:col-span-1">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Eligible Schemes</span>
+<span class="material-symbols-outlined text-outline">assignment_turned_in</span>
+</div>
+<div class="font-display-lg text-display-lg text-primary">12</div>
+</div>
+<!-- Metric 2 -->
+<div class="glass-card p-stack-md flex flex-col justify-between min-h-[140px] lg:col-span-1">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Applications Submitted</span>
+<span class="material-symbols-outlined text-outline">send</span>
+</div>
+<div class="font-display-lg text-display-lg text-primary">3</div>
+</div>
+<!-- Metric 3 -->
+<div class="glass-card p-stack-md flex flex-col justify-between min-h-[140px] lg:col-span-1">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Documents Verified</span>
+<span class="material-symbols-outlined text-outline">verified_user</span>
+</div>
+<div class="font-display-lg text-display-lg text-primary">8/10</div>
+</div>
+<!-- Metric 4 -->
+<div class="glass-card p-stack-md flex flex-col justify-between min-h-[140px] lg:col-span-1">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Upcoming Deadlines</span>
+<span class="material-symbols-outlined text-error">event</span>
+</div>
+<div class="font-display-lg text-display-lg text-error">2</div>
+</div>
+<!-- AI Recommendations -->
+<div class="glass-card p-stack-md bg-gradient-to-br from-surface to-[#FEFECC]/20 border-l-4 border-l-[#222222] lg:col-span-2">
+<div class="flex items-center gap-2 mb-stack-sm">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: &quot;FILL&quot; 1;">auto_awesome</span>
+<h3 class="font-headline-md text-headline-md text-primary">AI Insights</h3>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">
+                Based on your profile updates last week regarding your new manufacturing unit in Gujarat, you should apply for the <strong class="text-primary">PMEGP</strong> scheme immediately. It aligns perfectly with your planned capital expenditure.
+            </p>
+<button class="text-label-md font-label-md text-primary underline hover:text-outline transition-colors">Review Eligibility Criteria</button>
+</div>
+<!-- Section Header -->
+<div class="lg:col-span-3 flex justify-between items-end mt-stack-sm mb-unit md:mb-0 pb-2">
+<h2 class="font-headline-md text-headline-md text-primary">Recommended for You</h2>
+<button class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1">
+                View all <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<!-- Upcoming Deadlines Timeline -->
+<div class="glass-card p-stack-md lg:col-span-1 lg:row-span-4 flex flex-col">
+<h3 class="font-headline-md text-headline-md text-primary mb-stack-md">Upcoming Deadlines</h3>
+<div class="relative border-l border-outline-variant ml-3 space-y-6 flex-grow">
+<!-- Timeline Item 1 -->
+<div class="relative pl-6">
+<div class="absolute w-3 h-3 bg-error rounded-full -left-[6.5px] top-1.5 border-2 border-surface"></div>
+<p class="font-label-sm text-label-sm text-error font-bold mb-1">In 3 Days (Oct 15)</p>
+<h4 class="font-label-md text-label-md text-primary">Mudhra Loan Application</h4>
+<p class="font-body-sm text-sm text-on-surface-variant mt-1">Pending document upload: Last 3 years ITR.</p>
+</div>
+<!-- Timeline Item 2 -->
+<div class="relative pl-6">
+<div class="absolute w-3 h-3 bg-[#FEFECC] rounded-full -left-[6.5px] top-1.5 border-2 border-[#222222]"></div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1">Next Week (Oct 22)</p>
+<h4 class="font-label-md text-label-md text-primary">CGTMSE Guarantee Fee</h4>
+<p class="font-body-sm text-sm text-on-surface-variant mt-1">Annual renewal payment due.</p>
+</div>
+<!-- Timeline Item 3 -->
+<div class="relative pl-6">
+<div class="absolute w-3 h-3 bg-surface-variant rounded-full -left-[6.5px] top-1.5 border-2 border-outline-variant"></div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1">Next Month (Nov 30)</p>
+<h4 class="font-label-md text-label-md text-primary">ZED Certification Renewal</h4>
+<p class="font-body-sm text-sm text-on-surface-variant mt-1">Prepare assessment report.</p>
+</div>
+</div>
+</div>
+<!-- Scheme Card 1 -->
+<div class="glass-card p-stack-md flex flex-col md:flex-row gap-stack-md items-start md:items-center lg:col-span-3">
+<div class="flex-grow space-y-unit">
+<div class="flex items-center gap-2">
+<span class="px-3 py-1 bg-[#FEFECC] text-on-secondary-fixed-variant rounded-full font-label-sm text-label-sm">95% Match</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Ministry of MSME</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary">Prime Minister's Employment Generation Programme (PMEGP)</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Credit-linked subsidy program aimed at generating self-employment opportunities through establishment of micro-enterprises in the non-farm sector.</p>
+<div class="flex items-center gap-4 mt-stack-sm text-sm text-outline">
+<div class="flex items-center gap-1"><span class="material-symbols-outlined text-base">calendar_today</span> Opens: Jan 1, 2024</div>
+<div class="flex items-center gap-1"><span class="material-symbols-outlined text-base">event_busy</span> Closes: Mar 31, 2024</div>
+</div>
+</div>
+<div class="w-full md:w-auto flex flex-col gap-2">
+<button class="bg-primary-container text-on-primary w-full md:w-40 py-3 rounded-xl font-label-md text-label-md hover:bg-inverse-surface transition-colors duration-300">Apply Now</button>
+<button class="border border-outline-variant text-on-surface w-full md:w-40 py-3 rounded-xl font-label-md text-label-md hover:bg-surface-container transition-colors duration-300">View Details</button>
+</div>
+</div>
+<!-- Scheme Card 2 -->
+<div class="glass-card p-stack-md flex flex-col md:flex-row gap-stack-md items-start md:items-center lg:col-span-3">
+<div class="flex-grow space-y-unit">
+<div class="flex items-center gap-2">
+<span class="px-3 py-1 bg-[#FEFECC] text-on-secondary-fixed-variant rounded-full font-label-sm text-label-sm">88% Match</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Ministry of Finance</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary">Stand-Up India Scheme</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Facilitates bank loans between 10 lakh and 1 Crore to at least one Scheduled Caste (SC) or Scheduled Tribe (ST) borrower and at least one woman borrower per bank branch for setting up a greenfield enterprise.</p>
+<div class="flex items-center gap-4 mt-stack-sm text-sm text-outline">
+<div class="flex items-center gap-1"><span class="material-symbols-outlined text-base">calendar_today</span> Continuous</div>
+<div class="flex items-center gap-1"><span class="material-symbols-outlined text-base">event_busy</span> N/A</div>
+</div>
+</div>
+<div class="w-full md:w-auto flex flex-col gap-2">
+<button class="bg-primary-container text-on-primary w-full md:w-40 py-3 rounded-xl font-label-md text-label-md hover:bg-inverse-surface transition-colors duration-300">Apply Now</button>
+<button class="border border-outline-variant text-on-surface w-full md:w-40 py-3 rounded-xl font-label-md text-label-md hover:bg-surface-container transition-colors duration-300">View Details</button>
+</div>
+</div>
+<!-- Skeleton Loading Card -->
+<div class="glass-card p-stack-md flex flex-col md:flex-row gap-stack-md items-start md:items-center opacity-70 lg:col-span-3">
+<div class="flex-grow w-full space-y-3">
+<div class="flex gap-2">
+<div class="skeleton h-6 w-24 rounded-full"></div>
+<div class="skeleton h-6 w-32 rounded-full"></div>
+</div>
+<div class="skeleton h-8 w-3/4 rounded-lg"></div>
+<div class="skeleton h-12 w-full rounded-lg"></div>
+<div class="flex gap-4">
+<div class="skeleton h-4 w-32 rounded"></div>
+<div class="skeleton h-4 w-32 rounded"></div>
+</div>
+</div>
+<div class="w-full md:w-auto flex flex-col gap-2">
+<div class="skeleton h-12 w-full md:w-40 rounded-xl"></div>
+<div class="skeleton h-12 w-full md:w-40 rounded-xl"></div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface border-t border-surface-variant mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-stack-md max-w-container-max mx-auto">
+<div class="font-label-md text-label-md font-bold text-primary mb-4 md:mb-0">
+                Eligify
+            </div>
+<div class="flex space-x-gutter">
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-all duration-300" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-all duration-300" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-all duration-300" href="#">Contact Support</a>
+</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant mt-4 md:mt-0">
+                © 2024 Eligify. Institutional Security Guaranteed.
+            </div>
+</div>
+</footer>
+</body></html>

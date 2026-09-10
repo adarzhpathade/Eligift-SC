@@ -1,0 +1,1 @@
+const postgres = require('postgres'); const sql = postgres('postgresql://postgres:Rub%2FrH78%2Bj%2A4k2h@db.bcpwsvstzarqufwguyod.supabase.co:5432/postgres'); sql\SELECT 1\.then(() => { console.log('success'); process.exit(0); }).catch((e) => { console.error(e); process.exit(1); });

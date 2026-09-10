@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1788969880907,
+      "tag": "0000_overrated_war_machine",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1789001012764,
+      "tag": "0001_even_stryfe",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1789002897102,
+      "tag": "0002_add_hi_columns",
+      "breakpoints": true
+    }
+  ]
+}

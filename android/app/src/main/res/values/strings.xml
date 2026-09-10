@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Eligify AI</string>
+    <string name="title_activity_main">Eligify AI</string>
+    <string name="package_name">com.eligify.app</string>
+    <string name="custom_url_scheme">com.eligify.app</string>
+</resources>

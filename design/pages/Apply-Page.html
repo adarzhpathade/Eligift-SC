@@ -1,0 +1,363 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Application Preparation - Eligify</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#e5e5b5",
+                        "inverse-on-surface": "#f2f0f0",
+                        "surface-container-highest": "#e4e2e2",
+                        "inverse-primary": "#c8c6c5",
+                        "surface-container-low": "#f5f3f3",
+                        "on-secondary-container": "#64653e",
+                        "tertiary": "#0b0d09",
+                        "on-tertiary-fixed": "#1a1c18",
+                        "surface-dim": "#dbdad9",
+                        "outline-variant": "#c4c7c7",
+                        "inverse-surface": "#303031",
+                        "on-primary-container": "#8a8989",
+                        "tertiary-fixed": "#e3e3db",
+                        "on-tertiary-container": "#898a84",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#fbf9f8",
+                        "on-surface-variant": "#444748",
+                        "on-secondary-fixed": "#1c1d01",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#fbf9f8",
+                        "on-secondary-fixed-variant": "#484925",
+                        "outline": "#747878",
+                        "error": "#ba1a1a",
+                        "on-surface": "#1b1c1c",
+                        "surface-variant": "#e4e2e2",
+                        "tertiary-container": "#21231e",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#c9c99b",
+                        "on-primary": "#ffffff",
+                        "secondary": "#5f613a",
+                        "surface-container": "#efeded",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "tertiary-fixed-dim": "#c6c7c0",
+                        "on-primary-fixed": "#1b1c1c",
+                        "surface-container-high": "#e9e8e7",
+                        "secondary-container": "#e2e3b2",
+                        "primary-container": "#222222",
+                        "primary": "#0b0c0c",
+                        "on-background": "#1b1c1c",
+                        "surface": "#fbf9f8",
+                        "primary-fixed": "#e5e2e1",
+                        "on-tertiary-fixed-variant": "#464742",
+                        "on-primary-fixed-variant": "#474746",
+                        "surface-tint": "#5f5e5e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "48px",
+                        "margin-mobile": "20px",
+                        "stack-sm": "12px",
+                        "gutter": "24px",
+                        "unit": "8px",
+                        "margin-desktop": "64px",
+                        "stack-md": "24px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "1.4", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Custom Ambient Shadows */
+        .shadow-ambient-lvl1 {
+            box-shadow: 0px 10px 30px rgba(34, 34, 34, 0.05);
+        }
+        .shadow-ambient-lvl2 {
+            box-shadow: 0px 20px 50px rgba(34, 34, 34, 0.1);
+        }
+
+        /* Skeleton Loading Animation */
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+        .skeleton-shimmer {
+            animation: shimmer 2s infinite linear;
+            background: linear-gradient(to right, #f5f3f3 4%, #e9e8e7 25%, #f5f3f3 36%);
+            background-size: 1000px 100%;
+        }
+        
+        /* Hide scrollbar for clean aesthetic */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e4e2e2;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #c4c7c7;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- TopAppBar Component -->
+<!-- Main Content Area - Split Layout -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-stack-md md:py-stack-lg flex flex-col md:flex-row gap-gutter pb-32 pt-16">
+<!-- Left Panel: Context & Requirements (40%) -->
+<aside class="w-full md:w-[40%] flex flex-col gap-stack-md">
+<!-- Scheme Header Card -->
+<div class="bg-surface-container-lowest rounded-[20px] p-stack-md shadow-ambient-lvl1 flex flex-col gap-unit border border-outline-variant/20">
+<div class="inline-flex items-center gap-2 bg-surface-container px-3 py-1 rounded-full w-fit mb-2">
+<span class="material-symbols-outlined text-[16px] text-primary">account_balance</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Ministry of MSME</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary">Prime Minister's Employment Generation Programme</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2">
+                    Credit-linked subsidy scheme to generate employment opportunities through establishment of micro-enterprises in rural and urban areas.
+                </p>
+<div class="flex items-center gap-2 mt-4 text-error p-3 bg-error-container/30 rounded-lg">
+<span class="material-symbols-outlined text-error">schedule</span>
+<span class="font-label-md text-label-md">Application Closes: <strong>14 Days</strong> (Oct 31, 2024)</span>
+</div>
+</div>
+<!-- Eligibility Met Card -->
+<div class="bg-surface-container-lowest rounded-[20px] p-stack-md shadow-ambient-lvl1 flex flex-col gap-stack-sm border border-outline-variant/20">
+<h2 class="font-headline-md text-headline-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">verified</span>
+                    Eligibility Confirmed
+                </h2>
+<ul class="flex flex-col gap-3 mt-2">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary mt-0.5">check_circle</span>
+<div>
+<span class="block font-label-md text-label-md text-on-surface">Age Requirement</span>
+<span class="block font-body-md text-body-md text-on-surface-variant text-sm">Over 18 years verified via Aadhar.</span>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary mt-0.5">check_circle</span>
+<div>
+<span class="block font-label-md text-label-md text-on-surface">Education Qualification</span>
+<span class="block font-body-md text-body-md text-on-surface-variant text-sm">VIII pass verified for manufacturing unit &gt; 10 Lakhs.</span>
+</div>
+</li>
+</ul>
+</div>
+<!-- Interactive Checklist -->
+<div class="bg-surface-container-lowest rounded-[20px] p-stack-md shadow-ambient-lvl1 flex flex-col gap-stack-sm border border-outline-variant/20">
+<h2 class="font-headline-md text-headline-md text-primary mb-2">Required Documents</h2>
+<!-- Checklist Items -->
+<div class="flex items-center gap-3 p-3 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer group">
+<div class="w-5 h-5 rounded-full border-2 border-primary bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-[14px]">check</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface line-through text-on-surface-variant">Aadhar Card</span>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer group">
+<div class="w-5 h-5 rounded-full border-2 border-primary bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-[14px]">check</span>
+</div>
+<span class="font-label-md text-label-md text-on-surface line-through text-on-surface-variant">Project Report / Business Plan</span>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-lg border border-outline-variant/50 bg-surface-bright hover:bg-surface-container-low transition-colors cursor-pointer group">
+<div class="w-5 h-5 rounded-full border-2 border-outline-variant flex items-center justify-center group-hover:border-primary transition-colors"></div>
+<span class="font-label-md text-label-md text-on-surface">Category Certificate (if applicable)</span>
+</div>
+<div class="flex items-center gap-3 p-3 rounded-lg border border-error/50 bg-error-container/10 hover:bg-error-container/20 transition-colors cursor-pointer group">
+<div class="w-5 h-5 rounded-full border-2 border-error flex items-center justify-center">
+<span class="material-symbols-outlined text-error text-[14px]">priority_high</span>
+</div>
+<span class="font-label-md text-label-md text-error">Rural Area Certificate (Missing)</span>
+</div>
+</div>
+</aside>
+<!-- Right Panel: Workspace & AI Review (60%) -->
+<section class="w-full md:w-[60%] flex flex-col gap-stack-md">
+<!-- Progress & Status Header -->
+<div class="bg-surface-container-lowest rounded-[20px] p-stack-md shadow-ambient-lvl1 border border-outline-variant/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+<div>
+<h2 class="font-headline-md text-headline-md text-primary">Document Readiness</h2>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm mt-1">AI has verified 2 of 4 required documents.</p>
+</div>
+<!-- Linear Progress -->
+<div class="w-full sm:w-48 flex flex-col gap-2">
+<div class="flex justify-between text-sm">
+<span class="font-label-md text-label-md text-primary">50%</span>
+<span class="font-label-md text-label-md text-on-surface-variant">2/4 Complete</span>
+</div>
+<div class="w-full h-2 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all duration-500" style="width: 50%;"></div>
+</div>
+</div>
+</div>
+<!-- Upload Area -->
+<div class="border-2 border-dashed border-outline-variant rounded-[20px] p-8 flex flex-col items-center justify-center text-center bg-surface-bright hover:bg-surface-container-low hover:border-primary transition-all duration-300 cursor-pointer group">
+<div class="w-16 h-16 bg-surface-container rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-[32px] text-primary">cloud_upload</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2 text-lg">Drag &amp; Drop Documents</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 max-w-sm">Upload your missing certificates or drag them here. Supports PDF, JPG, PNG up to 5MB.</p>
+<button class="bg-surface text-primary border border-primary px-6 py-3 rounded-full font-label-md text-label-md hover:bg-surface-container transition-colors shadow-sm">
+                    Browse Files
+                </button>
+</div>
+<!-- Document Status Cards Grid -->
+<div class="grid grid-cols-1 gap-4 mt-2">
+<!-- Verified Document -->
+<div class="bg-surface-container-lowest rounded-[20px] p-5 shadow-ambient-lvl1 border border-outline-variant/20 flex flex-col sm:flex-row gap-4 hover:-translate-y-1 transition-transform duration-300">
+<div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary">description</span>
+</div>
+<div class="flex-grow flex flex-col gap-2">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-label-md text-label-md text-primary text-base">Aadhar Card</h4>
+<span class="font-body-md text-body-md text-on-surface-variant text-xs">Uploaded Oct 15 • 1.2 MB</span>
+</div>
+<span class="bg-secondary/10 text-secondary px-3 py-1 rounded-full font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">verified</span> Verified
+                            </span>
+</div>
+<!-- AI Review Summary -->
+<div class="bg-surface-container-low p-3 rounded-lg border border-secondary/20 flex gap-3 mt-2">
+<span class="material-symbols-outlined text-secondary text-[20px] mt-0.5">smart_toy</span>
+<div>
+<div class="font-label-md text-label-md text-primary text-xs flex items-center gap-2">
+                                    AI Confidence: 99%
+                                    <div class="w-16 h-1 bg-secondary/30 rounded-full overflow-hidden">
+<div class="w-[99%] h-full bg-secondary"></div>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant text-xs mt-1">Identity details match Eligify profile perfectly. No issues detected.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Missing Document -->
+<div class="bg-surface-container-lowest rounded-[20px] p-5 shadow-ambient-lvl1 border border-error/30 flex flex-col sm:flex-row gap-4">
+<div class="w-12 h-12 rounded-xl bg-error-container/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-error">warning</span>
+</div>
+<div class="flex-grow flex flex-col gap-2">
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-label-md text-label-md text-primary text-base">Rural Area Certificate</h4>
+<span class="font-body-md text-body-md text-on-surface-variant text-xs">Required for higher subsidy rate</span>
+</div>
+<span class="bg-error-container/20 text-error px-3 py-1 rounded-full font-label-sm text-label-sm flex items-center gap-1">
+                                Missing
+                            </span>
+</div>
+<div class="bg-error-container/10 p-3 rounded-lg border border-error/20 flex gap-3 mt-2">
+<span class="material-symbols-outlined text-error text-[20px] mt-0.5">lightbulb</span>
+<div>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Please upload a valid certificate issued by the competent authority (Tehsildar or higher) to claim the 35% rural subsidy.</p>
+<button class="mt-2 text-error font-label-md text-label-md text-sm hover:underline">View Example Document</button>
+</div>
+</div>
+</div>
+</div>
+<!-- AI Processing Skeleton -->
+<div class="bg-surface-container-lowest rounded-[20px] p-5 shadow-ambient-lvl1 border border-outline-variant/20 flex flex-col sm:flex-row gap-4">
+<div class="w-12 h-12 rounded-xl skeleton-shimmer shrink-0"></div>
+<div class="flex-grow flex flex-col gap-3 justify-center">
+<div class="flex justify-between items-start">
+<div class="w-3/4 flex flex-col gap-2">
+<div class="h-4 w-48 rounded skeleton-shimmer"></div>
+<div class="h-3 w-32 rounded skeleton-shimmer"></div>
+</div>
+<div class="h-6 w-20 rounded-full skeleton-shimmer"></div>
+</div>
+<div class="h-16 w-full rounded-lg skeleton-shimmer mt-2"></div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Sticky Action Bar -->
+<div class="fixed bottom-0 left-0 w-full bg-surface-container-lowest/90 backdrop-blur-md border-t border-outline-variant/20 shadow-[0px_-10px_30px_rgba(34,34,34,0.05)] z-40 transition-all duration-300 translate-y-0">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">info</span>
+</div>
+<div>
+<span class="block font-label-md text-label-md text-primary">Not quite ready yet.</span>
+<span class="block font-body-md text-body-md text-on-surface-variant text-sm">Complete all required documents to proceed.</span>
+</div>
+</div>
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<button class="flex-1 sm:flex-none px-6 py-3 rounded-full border border-outline font-label-md text-label-md text-on-surface hover:bg-surface-container transition-colors h-[48px]">
+                    Save Progress
+                </button>
+<button class="flex-1 sm:flex-none px-6 py-3 rounded-full bg-primary-container text-on-primary font-label-md text-label-md hover:bg-primary-container/90 hover:-translate-y-0.5 transition-all duration-300 shadow-ambient-lvl1 opacity-50 cursor-not-allowed h-[48px]" disabled="">
+                    Proceed to Official Application
+                </button>
+</div>
+</div>
+</div>
+<!-- Footer Component -->
+<footer class="bg-surface-container-low dark:bg-tertiary-container full-width mt-stack-lg pb-24 md:pb-8">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-stack-md max-w-container-max mx-auto">
+<div class="font-label-md text-label-md font-bold text-primary dark:text-primary-fixed mb-4 md:mb-0">
+                Eligify
+            </div>
+<nav class="flex flex-wrap justify-center gap-4 mb-4 md:mb-0">
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed underline transition-opacity duration-300" href="#">Privacy Policy</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed underline transition-opacity duration-300" href="#">Terms of Service</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed underline transition-opacity duration-300" href="#">Accessibility</a>
+<a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed underline transition-opacity duration-300" href="#">Contact Support</a>
+</nav>
+<div class="font-label-sm text-label-sm text-on-surface dark:text-on-tertiary-container text-center md:text-right">
+                © 2024 Eligify Government Solutions. All rights reserved.
+            </div>
+</div>
+</footer>
+</body></html>

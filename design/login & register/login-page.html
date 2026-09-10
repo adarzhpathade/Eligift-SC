@@ -1,0 +1,207 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title class="">Eligify AI - Find Every Government Scheme</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#e2e3b2",
+                        "error-container": "#ffdad6",
+                        "inverse-on-surface": "#f2f0f0",
+                        "on-surface-variant": "#444748",
+                        "on-tertiary-fixed": "#1a1c18",
+                        "surface-container-low": "#f5f3f3",
+                        "inverse-primary": "#c8c6c5",
+                        "surface": "#fbf9f8",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "secondary-fixed": "#e5e5b5",
+                        "tertiary-fixed": "#e3e3db",
+                        "tertiary-fixed-dim": "#c6c7c0",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error": "#ffffff",
+                        "primary-container": "#222222",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#e4e2e2",
+                        "on-primary-fixed": "#1b1c1c",
+                        "surface-container-high": "#e9e8e7",
+                        "surface-variant": "#e4e2e2",
+                        "on-secondary-fixed-variant": "#484925",
+                        "on-tertiary-container": "#898a84",
+                        "on-primary-fixed-variant": "#474746",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#64653e",
+                        "on-tertiary-fixed-variant": "#464742",
+                        "tertiary-container": "#21231e",
+                        "surface-tint": "#5f5e5e",
+                        "outline-variant": "#c4c7c7",
+                        "surface-bright": "#fbf9f8",
+                        "on-background": "#1b1c1c",
+                        "surface-container": "#efeded",
+                        "tertiary": "#0b0d09",
+                        "on-tertiary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "inverse-surface": "#303031",
+                        "primary-fixed": "#e5e2e1",
+                        "background": "#fbf9f8",
+                        "on-primary-container": "#8a8989",
+                        "outline": "#747878",
+                        "secondary": "#5f613a",
+                        "secondary-fixed-dim": "#c9c99b",
+                        "primary": "#0b0c0c",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed": "#1c1d01",
+                        "on-surface": "#1b1c1c",
+                        "surface-dim": "#dbdad9",
+                        "brand-bg": "#FAFAF2",
+                        "brand-accent": "#FEFECC"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "24px",
+                        "margin-desktop": "64px",
+                        "unit": "8px",
+                        "container-max": "1440px",
+                        "gutter": "24px",
+                        "stack-sm": "12px",
+                        "stack-lg": "48px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "1.4", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .custom-shadow-0 { box-shadow: none; }
+        .custom-shadow-1 { box-shadow: 0px 10px 30px rgba(34, 34, 34, 0.05); }
+        .custom-shadow-2 { box-shadow: 0px 20px 50px rgba(34, 34, 34, 0.1); }
+        
+        .smooth-transition { transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1); }
+        
+        input:focus { border-width: 2px; }
+    </style>
+</head>
+<body class="bg-brand-bg text-on-background min-h-screen flex flex-col font-body-lg">
+<!-- Content: Bento Dashboard Layout -->
+<main class="flex-grow flex items-center justify-center w-full max-w-container-max mx-auto min-h-screen p-margin-mobile md:p-margin-desktop">
+<div class="w-full grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Left Side: Bento Modules -->
+<div class="lg:col-span-7 xl:col-span-8 flex flex-col gap-6">
+<!-- Main Headline Tile -->
+<section class="bg-surface-container-lowest rounded-3xl p-8 md:p-12 custom-shadow-1 relative overflow-hidden flex-grow flex flex-col justify-center min-h-[360px] smooth-transition hover:custom-shadow-2">
+<!-- Decorative image reference placeholder in background -->
+<div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuB4T8BTbaMhV_e3h4gpvGAvl0uDZTvb7ZbfjfDyaKbnePSr48oA8e31COVnIaXweAdXVb87bXqBME_LAamrCjfIYprRoaSyPQHbCdvVs_1xWdC7uTter7enfXtFEVpnLNcUPhULchNtZPdk68-HFWFq7yZQCptumNLwDIaBMXPByladWVmeGrSEuzPlGsR5n5JlnJ9c9jhUD_bXcIvinGhXPLsBkgQK0PMVWyxRIBiYsn7pP7TzpAGj_j-HoeRC_EihBkKKfJZQe5_Y&quot;); background-size: cover; background-position: center center; filter: grayscale(100%);"></div>
+<div class="z-10 relative">
+
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-stack-md leading-tight">
+                            Find Every Government Scheme You Qualify For
+                        </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl leading-relaxed">
+                            Our AI engine analyzes thousands of federal and state programs to find the exact support you're entitled to in seconds.
+                        </p>
+</div>
+</section>
+<!-- Metrics Row Tiles -->
+<section class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+<div class="bg-surface-container-lowest rounded-3xl p-6 custom-shadow-1 flex flex-col items-start gap-4 smooth-transition hover:-translate-y-1 hover:custom-shadow-2">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container" style="font-variation-settings: &quot;FILL&quot; 1;">database</span>
+</div>
+<span class="font-label-md text-label-md text-primary">5,000+ Schemes Indexed</span>
+</div>
+<div class="bg-surface-container-lowest rounded-3xl p-6 custom-shadow-1 flex flex-col items-start gap-4 smooth-transition hover:-translate-y-1 hover:custom-shadow-2">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container" style="font-variation-settings: &quot;FILL&quot; 1;">verified</span>
+</div>
+<span class="font-label-md text-label-md text-primary">100% Verified Sources</span>
+</div>
+<div class="bg-surface-container-lowest rounded-3xl p-6 custom-shadow-1 flex flex-col items-start gap-4 smooth-transition hover:-translate-y-1 hover:custom-shadow-2">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container" style="font-variation-settings: &quot;FILL&quot; 1;">groups</span>
+</div>
+<span class="font-label-md text-label-md text-primary">2.4M Success Stories</span>
+</div>
+</section>
+<!-- Security Trust Tile -->
+<section class="bg-surface-container-lowest rounded-3xl p-4 custom-shadow-1 flex items-center justify-center">
+<div class="font-label-sm text-label-sm text-outline flex items-center gap-2">
+                        Secure, encrypted federal compliance.
+                    </div>
+</section>
+</div>
+<!-- Right Side: Auth Form Tile -->
+<div class="lg:col-span-5 xl:col-span-4 flex flex-col h-full">
+<section class="bg-surface-container-lowest rounded-3xl custom-shadow-1 p-8 sm:p-10 flex-grow flex flex-col justify-center h-full smooth-transition hover:custom-shadow-2 w-full">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-2 text-center md:text-left">Welcome Back</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 text-center md:text-left">Enter your details to access your dashboard.</p>
+<form class="space-y-6">
+<div>
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2" for="email">Email Address</label>
+<input class="w-full h-14 px-4 rounded-[12px] border border-primary-container/10 bg-surface-container-lowest font-body-md text-primary focus:outline-none focus:border-primary-container focus:ring-0 smooth-transition" id="email" placeholder="name@example.com" required="" type="email">
+</div>
+<div>
+<div class="flex justify-between items-center mb-2">
+<label class="block font-label-md text-label-md text-on-surface-variant" for="password">Password</label>
+<a class="font-label-sm text-label-sm text-secondary hover:underline" href="#">Forgot password?</a>
+</div>
+<input class="w-full h-14 px-4 rounded-[12px] border border-primary-container/10 bg-surface-container-lowest font-body-md text-primary focus:outline-none focus:border-primary-container focus:ring-0 smooth-transition" id="password" placeholder="••••••••" required="" type="password">
+</div>
+<button class="w-full h-14 bg-primary-container text-on-primary font-label-md text-label-md rounded-[12px] flex items-center justify-center gap-2 smooth-transition hover:bg-surface-tint hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-container" type="submit">
+                            Continue
+                            <span class="material-symbols-outlined text-lg" style="font-variation-settings: &quot;FILL&quot; 1;">arrow_forward</span>
+</button>
+</form>
+<div class="my-8 flex items-center">
+<div class="flex-grow border-t border-outline-variant/30"></div>
+<span class="px-4 font-label-sm text-label-sm text-outline">OR</span>
+<div class="flex-grow border-t border-outline-variant/30"></div>
+</div>
+<button class="w-full h-14 bg-surface-container-lowest border border-outline-variant/30 text-primary font-label-md text-label-md rounded-[12px] flex items-center justify-center gap-3 smooth-transition hover:bg-surface-container-low hover:border-outline focus:outline-none" type="button">
+<svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path>
+</svg>
+                        Sign in with Google
+                    </button>
+<p class="mt-8 text-center font-body-md text-body-md text-on-surface-variant">
+                        Don't have an account? <a class="text-secondary font-bold hover:underline" href="#">Sign up</a>
+</p>
+</section>
+</div>
+</div>
+</main>
+
+
+</body></html>

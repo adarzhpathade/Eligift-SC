@@ -1,0 +1,250 @@
+<!DOCTYPE html><html class="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title class="">Eligify - Onboarding Step 2</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#e2e3b2",
+                        "error-container": "#ffdad6",
+                        "inverse-on-surface": "#f2f0f0",
+                        "on-surface-variant": "#444748",
+                        "on-tertiary-fixed": "#1a1c18",
+                        "surface-container-low": "#f5f3f3",
+                        "inverse-primary": "#c8c6c5",
+                        "surface": "#fbf9f8",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "secondary-fixed": "#e5e5b5",
+                        "tertiary-fixed": "#e3e3db",
+                        "tertiary-fixed-dim": "#c6c7c0",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error": "#ffffff",
+                        "primary-container": "#222222",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#e4e2e2",
+                        "on-primary-fixed": "#1b1c1c",
+                        "surface-container-high": "#e9e8e7",
+                        "surface-variant": "#e4e2e2",
+                        "on-secondary-fixed-variant": "#484925",
+                        "on-tertiary-container": "#898a84",
+                        "on-primary-fixed-variant": "#474746",
+                        "on-error-container": "#93000a",
+                        "on-secondary-container": "#64653e",
+                        "on-tertiary-fixed-variant": "#464742",
+                        "tertiary-container": "#21231e",
+                        "surface-tint": "#5f5e5e",
+                        "outline-variant": "#c4c7c7",
+                        "surface-bright": "#fbf9f8",
+                        "on-background": "#1b1c1c",
+                        "surface-container": "#efeded",
+                        "tertiary": "#0b0d09",
+                        "on-tertiary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "inverse-surface": "#303031",
+                        "primary-fixed": "#e5e2e1",
+                        "background": "#fbf9f8",
+                        "on-primary-container": "#8a8989",
+                        "outline": "#747878",
+                        "secondary": "#5f613a",
+                        "secondary-fixed-dim": "#c9c99b",
+                        "primary": "#0b0c0c",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed": "#1c1d01",
+                        "on-surface": "#1b1c1c",
+                        "surface-dim": "#dbdad9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "24px",
+                        "margin-desktop": "64px",
+                        "unit": "8px",
+                        "container-max": "1440px",
+                        "gutter": "24px",
+                        "stack-sm": "12px",
+                        "stack-lg": "48px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "1.4", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #fbf9f8;
+            color: #1b1c1c;
+        }
+        .ambient-shadow {
+            box-shadow: 0px 4px 24px rgba(34, 34, 34, 0.04);
+        }
+        .ambient-shadow-hover:hover {
+            box-shadow: 0px 8px 32px rgba(34, 34, 34, 0.08);
+            transform: translateY(-2px);
+        }
+        
+        /* Custom radio button styling to hide default and use a custom visual */
+        input[type="radio"].custom-radio {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 0;
+            height: 0;
+            opacity: 0;
+            position: absolute;
+        }
+        
+        /* Card Selection State */
+        .selection-card {
+            transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid transparent;
+        }
+        
+        .custom-radio:checked + .selection-card {
+            border-color: #222222;
+            background-color: #FAFAF2;
+            box-shadow: 0px 4px 16px rgba(34, 34, 34, 0.05);
+        }
+        
+        .custom-radio:focus-visible + .selection-card {
+            outline: 2px solid #222222;
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center py-12 px-4 md:px-8 w-full overflow-y-auto">
+<!-- Top Logo -->
+<div class="mb-12">
+<img alt="Eligify Logo" class="w-auto h-8" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUzsgSh09jUWoW_kYvmpwE2sWB6n0IpKotsEeHPszZCigE0LgqL0ZJiw10GXkptBsi0-yNWDgZUuDFx0_SMI-mphVoDaWNEm2txKJZ0OdVqNPIigEYst9uxKXbn1wcxuiOy3Z6fmPJ7G63yHoKiE8F3W9fQbHjvih9rTdL0jWePqfCOzT-rnDVoUD4qr3N2Q1EVd1_ZDOqw_x1wYrUwb0-HpeF64ZUJSj5HTuW3iR_vwJZueJofDkKH9lJ_PdsuQ_CnBu-FNecxtkA">
+</div>
+<form action="#" class="w-full max-w-4xl flex flex-col gap-6" method="POST">
+<!-- Top Card: Header & Step Indicator -->
+<div class="w-full bg-surface-container-lowest rounded-lg ambient-shadow p-8 flex flex-col md:flex-row gap-8 justify-between items-start md:items-center">
+<header class="max-w-md">
+<h1 class="font-headline-lg text-headline-lg text-primary mb-2">Personalize Your Experience</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Tell us a bit about yourself so we can tailor the Eligify platform to your needs.</p>
+</header>
+<div class="flex flex-col items-center md:items-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant mb-3">Identity</span>
+<div aria-label="Progress: Step 2 of 3" class="flex items-center gap-3">
+<div class="flex items-center justify-center w-8 h-8 rounded-full border border-outline-variant text-on-surface-variant font-label-md">1</div>
+<div class="w-8 h-px bg-outline-variant/30"></div>
+<div aria-current="step" class="flex items-center justify-center w-8 h-8 rounded-full border-2 border-primary bg-[#FEFECC] text-primary font-label-md">2</div>
+<div class="w-8 h-px bg-outline-variant/30"></div>
+<div class="flex items-center justify-center w-8 h-8 rounded-full border border-outline-variant/50 text-on-surface-variant/50 font-label-md">3</div>
+</div>
+</div>
+</div>
+<!-- Middle Section: Two side-by-side cards -->
+<div class="w-full grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Left Card: Preferred Language -->
+<div class="bg-surface-container-lowest rounded-lg ambient-shadow p-8">
+<fieldset>
+<legend class="font-headline-md text-headline-md text-primary mb-6">Preferred Language</legend>
+<div class="flex flex-col gap-4">
+<label class="cursor-pointer relative">
+<input checked="" class="custom-radio" name="language" type="radio" value="english">
+<div class="selection-card bg-surface rounded-lg p-4 flex items-center gap-3 border border-outline-variant/20 hover:border-outline-variant ambient-shadow-hover">
+<span class="material-symbols-outlined text-primary" data-icon="language">language</span>
+<span class="font-body-md text-body-md text-on-surface">English</span>
+</div>
+</label>
+<label class="cursor-pointer relative">
+<input class="custom-radio" name="language" type="radio" value="hindi">
+<div class="selection-card bg-surface rounded-lg p-4 flex items-center gap-3 border border-outline-variant/20 hover:border-outline-variant ambient-shadow-hover">
+<span class="material-symbols-outlined text-primary" data-icon="translate">translate</span>
+<span class="font-body-md text-body-md text-on-surface">Hindi</span>
+</div>
+</label>
+<label class="cursor-pointer relative">
+<input class="custom-radio" name="language" type="radio" value="spanish">
+<div class="selection-card bg-surface rounded-lg p-4 flex items-center gap-3 border border-outline-variant/20 hover:border-outline-variant ambient-shadow-hover">
+<span class="material-symbols-outlined text-primary" data-icon="record_voice_over">record_voice_over</span>
+<span class="font-body-md text-body-md text-on-surface">Spanish</span>
+</div>
+</label>
+<label class="cursor-pointer relative">
+<input class="custom-radio" name="language" type="radio" value="other">
+<div class="selection-card bg-surface rounded-lg p-4 flex items-center gap-3 border border-outline-variant/20 hover:border-outline-variant ambient-shadow-hover">
+<span class="material-symbols-outlined text-primary" data-icon="more_horiz">more_horiz</span>
+<span class="font-body-md text-body-md text-on-surface">Other</span>
+</div>
+</label>
+</div>
+</fieldset>
+</div>
+<!-- Right Card: Gender Identity -->
+<div class="bg-surface-container-lowest rounded-lg ambient-shadow p-8">
+<fieldset>
+<legend class="font-headline-md text-headline-md text-primary mb-2">Gender Identity</legend>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-6">This helps us ensure inclusive communication. It is entirely optional.</p>
+<div class="flex flex-col gap-4">
+<label class="cursor-pointer relative">
+<input class="custom-radio" name="gender" type="radio" value="female">
+<div class="selection-card bg-surface rounded-lg p-4 border border-outline-variant/20 hover:border-outline-variant ambient-shadow-hover transition-colors">
+<span class="font-body-md text-body-md text-on-surface">Female</span>
+</div>
+</label>
+<label class="cursor-pointer relative">
+<input class="custom-radio" name="gender" type="radio" value="male">
+<div class="selection-card bg-surface rounded-lg p-4 border border-outline-variant/20 hover:border-outline-variant ambient-shadow-hover transition-colors">
+<span class="font-body-md text-body-md text-on-surface">Male</span>
+</div>
+</label>
+<label class="cursor-pointer relative">
+<input class="custom-radio" name="gender" type="radio" value="non-binary">
+<div class="selection-card bg-surface rounded-lg p-4 border border-outline-variant/20 hover:border-outline-variant ambient-shadow-hover transition-colors">
+<span class="font-body-md text-body-md text-on-surface">Non-binary</span>
+</div>
+</label>
+<label class="cursor-pointer relative">
+<input checked="" class="custom-radio" name="gender" type="radio" value="prefer-not">
+<div class="selection-card bg-surface rounded-lg p-4 border border-outline-variant/20 hover:border-outline-variant ambient-shadow-hover transition-colors">
+<span class="font-body-md text-body-md text-on-surface">Prefer not to say</span>
+</div>
+</label>
+</div>
+</fieldset>
+</div>
+</div>
+<!-- Bottom Actions Card -->
+<div class="w-full bg-surface-container-lowest rounded-lg ambient-shadow p-6 flex items-center justify-between">
+<button class="px-6 py-3 font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2 rounded-lg hover:bg-surface-container" type="button">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+            Back
+        </button>
+<button class="px-8 py-3 bg-primary-container text-on-primary font-label-md text-label-md rounded-lg ambient-shadow-hover hover:bg-[#333333] transition-all flex items-center gap-2 border border-primary-container" type="submit">
+            Next Step
+            <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</form>
+</body></html>

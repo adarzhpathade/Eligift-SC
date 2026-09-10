@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GovScheme AI - Discover Schemes</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-bright": "#fbf9f8",
+                    "secondary-fixed-dim": "#c9c99b",
+                    "error-container": "#ffdad6",
+                    "on-error": "#ffffff",
+                    "surface-container-highest": "#e4e2e2",
+                    "on-primary-container": "#8a8989",
+                    "on-tertiary-fixed-variant": "#464742",
+                    "on-tertiary-container": "#898a84",
+                    "secondary-fixed": "#e5e5b5",
+                    "on-secondary-fixed": "#1c1d01",
+                    "inverse-on-surface": "#f2f0f0",
+                    "primary-container": "#222222",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed": "#1b1c1c",
+                    "surface-tint": "#5f5e5e",
+                    "on-error-container": "#93000a",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface-variant": "#444748",
+                    "on-secondary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "secondary": "#5f613a",
+                    "tertiary-container": "#21231e",
+                    "surface-container-high": "#e9e8e7",
+                    "tertiary-fixed": "#e3e3db",
+                    "inverse-surface": "#303031",
+                    "tertiary-fixed-dim": "#c6c7c0",
+                    "primary": "#0b0c0c",
+                    "on-secondary-container": "#64653e",
+                    "secondary-container": "#e2e3b2",
+                    "primary-fixed": "#e5e2e1",
+                    "outline-variant": "#c4c7c7",
+                    "primary-fixed-dim": "#c8c6c5",
+                    "on-primary-fixed-variant": "#474746",
+                    "surface-container-low": "#f5f3f3",
+                    "on-surface": "#1b1c1c",
+                    "inverse-primary": "#c8c6c5",
+                    "surface-variant": "#e4e2e2",
+                    "background": "#fbf9f8",
+                    "surface-dim": "#dbdad9",
+                    "surface": "#fbf9f8",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed-variant": "#484925",
+                    "tertiary": "#0b0d09",
+                    "on-background": "#1b1c1c",
+                    "on-tertiary-fixed": "#1a1c18",
+                    "surface-container": "#efeded",
+                    "outline": "#747878"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-md": "24px",
+                    "container-max": "1440px",
+                    "stack-lg": "48px",
+                    "stack-sm": "12px",
+                    "margin-desktop": "64px",
+                    "margin-mobile": "20px",
+                    "gutter": "24px",
+                    "unit": "8px"
+            },
+            "fontFamily": {
+                    "display-lg-mobile": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "label-md": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "headline-lg": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "headline-md": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "body-lg": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "body-md": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "label-sm": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "display-lg": [
+                            "Plus Jakarta Sans"
+                    ]
+            },
+            "fontSize": {
+                    "display-lg-mobile": [
+                            "32px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "label-md": [
+                            "14px",
+                            {
+                                    "lineHeight": "1.4",
+                                    "letterSpacing": "0.01em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "1.3",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "label-sm": [
+                            "12px",
+                            {
+                                    "lineHeight": "1.4",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        
+        .shimmer-bg {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite linear;
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e4e2e2;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #c4c7c7;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background h-screen flex flex-col font-sans relative overflow-hidden">
+<!-- Background Shader -->
+<div class="fixed inset-0 z-[-1] pointer-events-none opacity-40 mix-blend-multiply">
+<canvas class="absolute inset-0 w-full h-full" id="shader-canvas-ANIMATION_36"></canvas>
+<script>
+(function() {
+  const canvas = document.getElementById('shader-canvas-ANIMATION_36');
+  function syncSize() {
+    const w = canvas.clientWidth  || 1280;
+    const h = canvas.clientHeight || 720;
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width  = w;
+      canvas.height = h;
+    }
+  }
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(syncSize).observe(canvas);
+  }
+  syncSize();
+  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) return;
+  const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+  const fs = `precision highp float;
+varying vec2 v_texCoord;
+uniform float u_time;
+void main() {
+    vec2 uv = v_texCoord;
+    float noise = sin(uv.x * 10.0 + u_time * 0.5) * cos(uv.y * 10.0 + u_time * 0.5) * 0.1;
+    vec3 color1 = vec3(0.984, 0.976, 0.973);
+    vec3 color2 = vec3(0.961, 0.953, 0.953);
+    vec3 finalColor = mix(color1, color2, uv.y + noise);
+    gl_FragColor = vec4(finalColor, 1.0);
+}`;
+  function cs(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    return s;
+  }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+  gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  const pos = gl.getAttribLocation(prog, 'a_position');
+  gl.enableVertexAttribArray(pos);
+  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+  const uTime = gl.getUniformLocation(prog, 'u_time');
+  function render(t) {
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    if (uTime) gl.uniform1f(uTime, t * 0.001);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(render);
+  }
+  render(0);
+})();
+</script>
+</div>
+<!-- Persistent Header Overlay -->
+<nav class="absolute top-0 left-0 right-0 z-50 bg-transparent">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-[1920px] mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">GovScheme AI</div>
+<div class="hidden md:flex items-center gap-6">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant cursor-pointer transition-all duration-300 hover:text-primary" href="#">Eligibility</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant cursor-pointer transition-all duration-300 hover:text-primary" href="#">My Applications</a>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-6 py-2 rounded-xl hover:bg-primary/90 transition-colors shadow-sm">Sign In</button>
+</div>
+</div>
+</nav>
+<!-- YOLO Layout Container -->
+<div class="flex h-full w-full pt-20">
+<!-- Left Sidebar: Describe Yourself & AI Input (30%) -->
+<aside class="w-full md:w-[30%] h-full flex flex-col p-8 md:pl-16 border-r border-outline-variant/10 z-10 bg-surface-bright/40 backdrop-blur-sm overflow-y-auto custom-scrollbar">
+<div class="mt-8 mb-12 fade-in-up">
+<h1 class="font-display-lg text-[40px] text-primary mb-4 tracking-tight leading-tight">Describe Yourself</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Tell us your situation and our AI will match you with the best government schemes.</p>
+</div>
+<div class="w-full bg-surface-container-lowest rounded-[20px] shadow-[0px_10px_30px_rgba(34,34,34,0.05)] border border-outline-variant/20 p-6 mb-8 fade-in-up stagger-1 relative overflow-hidden transition-all duration-300 hover:shadow-[0px_15px_40px_rgba(34,34,34,0.08)]">
+<textarea class="w-full bg-transparent border-none focus:ring-0 resize-none font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant/50 min-h-[160px]" placeholder="I am a 24 year old unemployed graduate from Maharashtra..." rows="4"></textarea>
+<div class="flex justify-between items-end mt-4">
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-xl cursor-pointer hover:text-primary">mic</span>
+<span class="material-symbols-outlined text-xl cursor-pointer hover:text-primary">attach_file</span>
+</div>
+<button class="bg-primary text-on-primary w-12 h-12 rounded-full flex items-center justify-center hover:bg-primary/90 transition-transform hover:scale-105 shadow-sm">
+<span class="material-symbols-outlined fill-icon">arrow_upward</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-3 fade-in-up stagger-2">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-1 opacity-60">Popular Prompts</p>
+<button class="bg-surface-container-lowest/50 border border-outline-variant/30 text-on-surface-variant font-label-sm text-label-sm px-4 py-3 rounded-xl hover:border-primary/30 hover:bg-surface-bright transition-all text-left">
+                "I am a female entrepreneur looking for funding."
+            </button>
+<button class="bg-surface-container-lowest/50 border border-outline-variant/30 text-on-surface-variant font-label-sm text-label-sm px-4 py-3 rounded-xl hover:border-primary/30 hover:bg-surface-bright transition-all text-left">
+                "I am a farmer with less than 2 acres of land."
+            </button>
+<button class="bg-surface-container-lowest/50 border border-outline-variant/30 text-on-surface-variant font-label-sm text-label-sm px-4 py-3 rounded-xl hover:border-primary/30 hover:bg-surface-bright transition-all text-left">
+                "I am looking for educational scholarships."
+            </button>
+</div>
+<!-- Footer Integrated at Sidebar Bottom -->
+<div class="mt-auto pt-12 pb-4">
+<p class="font-label-sm text-[10px] text-on-surface-variant/50 mb-4 uppercase tracking-widest">© 2024 Institutional AI Transparency</p>
+<div class="flex flex-wrap gap-x-4 gap-y-2">
+<a class="text-[11px] text-on-surface-variant hover:text-primary underline" href="#">Privacy</a>
+<a class="text-[11px] text-on-surface-variant hover:text-primary underline" href="#">Terms</a>
+<a class="text-[11px] text-on-surface-variant hover:text-primary underline" href="#">Contact</a>
+</div>
+</div>
+</aside>
+<!-- Right Panel: Results Feed (70%) -->
+<main class="w-full md:w-[70%] h-full overflow-y-auto px-8 md:px-16 pb-24 pt-8 custom-scrollbar">
+<!-- AI Thinking State -->
+<div class="w-full flex flex-col items-center justify-center py-16 mb-12 fade-in-up stagger-3" id="thinking-state" style="display: none;">
+<div class="w-20 h-20 mb-6 text-primary">
+<svg fill="none" height="80" viewbox="0 0 24 24" width="80" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM13 17H11V15H13V17ZM13 13H11V7H13V13Z" fill="currentColor">
+<animate attributename="opacity" dur="1.5s" repeatcount="indefinite" values="1;0.3;1"></animate>
+</path>
+</svg>
+</div>
+<p class="font-headline-md text-headline-md text-primary mb-4">Eligify AI is analyzing your profile...</p>
+<div class="w-80 h-1.5 rounded-full bg-surface-variant overflow-hidden">
+<div class="h-full w-full shimmer-bg rounded-full"></div>
+</div>
+</div>
+<!-- Results Content -->
+<div class="max-w-4xl mx-auto flex flex-col gap-8 fade-in-up stagger-3" id="results-section">
+<div class="flex items-center justify-between sticky top-0 py-4 bg-background/80 backdrop-blur-md z-20 border-b border-outline-variant/10">
+<h2 class="font-headline-md text-headline-md text-primary">Matched Schemes</h2>
+<span class="font-label-md text-label-md text-primary bg-secondary-container py-1.5 px-4 rounded-full font-bold">3 Potential Matches</span>
+</div>
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest rounded-3xl shadow-[0px_20px_50px_rgba(34,34,34,0.06)] border border-outline-variant/10 p-8 hover:-translate-y-2 transition-all duration-500 group">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="font-headline-lg text-headline-lg text-primary font-bold mb-2 group-hover:text-secondary transition-colors">PMEGP - Manufacturing</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Prime Minister's Employment Generation Programme</p>
+</div>
+<div class="bg-[#e2f5e9] text-[#0f5132] font-label-md text-label-md px-4 py-2 rounded-full flex items-center gap-2 border border-[#c3e6cb] shadow-sm">
+<span class="material-symbols-outlined text-[18px] fill-icon">check_circle</span>
+                        98% Match
+                    </div>
+</div>
+<div class="bg-surface-container-low p-6 rounded-2xl mb-8 border border-outline-variant/10 flex items-start gap-4">
+<span class="material-symbols-outlined text-primary text-2xl">auto_awesome</span>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant font-bold mb-2 uppercase tracking-widest">Why it matches</p>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">Your profile as an unemployed graduate in Maharashtra matches the core target demographic for this credit-linked subsidy. It focuses on local manufacturing ventures with high success rates in your region.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+<div class="flex items-start gap-4">
+<div class="bg-surface-container p-3 rounded-xl text-primary">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1">Financial Benefit</p>
+<p class="font-body-lg text-body-lg text-primary font-bold">Up to ₹50 Lakhs Subsidy</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="bg-surface-container p-3 rounded-xl text-error">
+<span class="material-symbols-outlined">event</span>
+</div>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1">Application Deadline</p>
+<p class="font-body-lg text-body-lg text-primary font-bold">March 31, 2024</p>
+</div>
+</div>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-outline-variant/10 gap-6">
+<div class="flex flex-wrap gap-2">
+<span class="bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm px-3 py-1.5 rounded-lg border border-outline-variant/20">Aadhaar Card</span>
+<span class="bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm px-3 py-1.5 rounded-lg border border-outline-variant/20">Degree Cert</span>
+<span class="bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm px-3 py-1.5 rounded-lg border border-outline-variant/20">Project Report</span>
+</div>
+<button class="w-full md:w-auto bg-primary text-on-primary font-label-md text-label-md px-10 py-4 rounded-2xl hover:bg-primary/90 transition-all shadow-xl flex items-center justify-center gap-3 group/btn">
+                        Start Application
+                        <span class="material-symbols-outlined text-[20px] group-hover/btn:translate-x-2 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest rounded-3xl shadow-[0px_10px_30px_rgba(34,34,34,0.03)] border border-outline-variant/10 p-8 hover:-translate-y-1 transition-all duration-500 flex flex-col md:flex-row justify-between items-center gap-6 cursor-pointer group">
+<div class="flex-grow">
+<div class="flex items-center gap-3 mb-2">
+<h3 class="font-headline-md text-headline-md text-primary font-bold">CMEGP Maharashtra</h3>
+<span class="text-xs bg-outline-variant/20 text-on-surface-variant px-2 py-0.5 rounded-md">State Scheme</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Chief Minister Employment Generation Programme for MSMEs.</p>
+</div>
+<div class="flex items-center gap-6">
+<div class="bg-[#e2f5e9]/50 text-[#0f5132] font-label-md text-label-md px-4 py-2 rounded-full border border-[#c3e6cb]/50">
+                        85% Match
+                    </div>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">chevron_right</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest rounded-3xl shadow-[0px_10px_30px_rgba(34,34,34,0.03)] border border-outline-variant/10 p-8 hover:-translate-y-1 transition-all duration-500 flex flex-col md:flex-row justify-between items-center gap-6 cursor-pointer group">
+<div class="flex-grow">
+<div class="flex items-center gap-3 mb-2">
+<h3 class="font-headline-md text-headline-md text-primary font-bold">MUDRA Shishu Loan</h3>
+<span class="text-xs bg-outline-variant/20 text-on-surface-variant px-2 py-0.5 rounded-md">Central Scheme</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">Collateral-free micro loans for starting small businesses.</p>
+</div>
+<div class="flex items-center gap-6">
+<div class="bg-[#e2f5e9]/50 text-[#0f5132] font-label-md text-label-md px-4 py-2 rounded-full border border-[#c3e6cb]/50">
+                        72% Match
+                    </div>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">chevron_right</span>
+</div>
+</div>
+</div>
+</main>
+</div>
+<script>
+    const textarea = document.querySelector('textarea');
+    textarea.addEventListener('input', function() {
+        this.style.height = 'auto';
+        this.style.height = (this.scrollHeight) + 'px';
+    });
+    
+    const sendBtn = document.querySelector('.bg-primary.rounded-full');
+    const resultsSection = document.getElementById('results-section');
+    const thinkingState = document.getElementById('thinking-state');
+    
+    if(sendBtn) {
+        sendBtn.addEventListener('click', () => {
+            if(textarea.value.trim() !== '') {
+                resultsSection.style.display = 'none';
+                thinkingState.style.display = 'flex';
+                
+                setTimeout(() => {
+                    thinkingState.style.display = 'none';
+                    resultsSection.style.display = 'flex';
+                    resultsSection.classList.remove('fade-in-up');
+                    void resultsSection.offsetWidth;
+                    resultsSection.classList.add('fade-in-up');
+                }, 2000);
+            }
+        });
+    }
+</script>
+</body></html>

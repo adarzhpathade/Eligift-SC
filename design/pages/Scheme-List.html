@@ -1,0 +1,327 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Eligify - Explore Government Schemes</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#464742",
+                        "on-secondary-fixed": "#1c1d01",
+                        "on-secondary-fixed-variant": "#484925",
+                        "surface-bright": "#fbf9f8",
+                        "on-primary-fixed-variant": "#474746",
+                        "surface-container-high": "#e9e8e7",
+                        "error-container": "#ffdad6",
+                        "surface-container-highest": "#e4e2e2",
+                        "surface": "#fbf9f8",
+                        "primary-container": "#222222",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#c8c6c5",
+                        "on-surface-variant": "#444748",
+                        "on-error": "#ffffff",
+                        "surface-container": "#efeded",
+                        "primary-fixed": "#e5e2e1",
+                        "on-primary": "#ffffff",
+                        "on-surface": "#1b1c1c",
+                        "surface-dim": "#dbdad9",
+                        "background": "#fbf9f8",
+                        "tertiary-fixed": "#e3e3db",
+                        "primary": "#0b0c0c",
+                        "on-primary-container": "#8a8989",
+                        "inverse-surface": "#303031",
+                        "outline-variant": "#c4c7c7",
+                        "on-secondary-container": "#64653e",
+                        "on-background": "#1b1c1c",
+                        "secondary-fixed": "#e5e5b5",
+                        "on-tertiary-fixed": "#1a1c18",
+                        "inverse-on-surface": "#f2f0f0",
+                        "on-tertiary-container": "#898a84",
+                        "outline": "#747878",
+                        "surface-container-low": "#f5f3f3",
+                        "tertiary-fixed-dim": "#c6c7c0",
+                        "secondary": "#5f613a",
+                        "tertiary-container": "#21231e",
+                        "surface-variant": "#e4e2e2",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed": "#1b1c1c",
+                        "surface-tint": "#5f5e5e",
+                        "secondary-fixed-dim": "#c9c99b",
+                        "on-tertiary": "#ffffff",
+                        "secondary-container": "#e2e3b2",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "tertiary": "#0b0d09"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-lg": "48px",
+                        "stack-sm": "12px",
+                        "stack-md": "24px",
+                        "container-max": "1440px",
+                        "unit": "8px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "margin-mobile": "20px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "display-lg-mobile": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .ambient-shadow-1 { box-shadow: 0px 10px 30px rgba(34, 34, 34, 0.05); }
+        .ambient-shadow-2 { box-shadow: 0px 20px 50px rgba(34, 34, 34, 0.1); }
+        .transition-premium { transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1); }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md h-screen flex flex-col overflow-hidden">
+<!-- TopNavBar -->
+
+<!-- Main Content: Split-Pane -->
+<main class="flex flex-col md:flex-row flex-grow overflow-hidden">
+<!-- Left Pane (Fixed Selector) -->
+<aside class="w-full md:w-[400px] lg:w-[480px] bg-surface-container-low md:border-r border-outline-variant flex flex-col h-full z-30">
+<div class="flex-grow overflow-y-auto no-scrollbar p-margin-mobile md:p-10 flex flex-col gap-stack-lg">
+<!-- Header Section -->
+<section class="flex flex-col gap-stack-sm">
+<h1 class="font-display-lg text-display-lg-mobile md:text-[40px] leading-tight text-primary">Explore Government Schemes</h1>
+<p class="font-body-md text-on-surface-variant">
+                        Discover and apply for financial assistance and support programs tailored to your profile.
+                    </p>
+</section>
+<!-- Search & Filters -->
+<section class="flex flex-col gap-stack-md">
+<!-- Search -->
+<div class="relative w-full ambient-shadow-1 rounded-xl bg-surface-container-lowest">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full h-14 pl-12 pr-4 rounded-xl border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-premium bg-transparent text-on-surface font-body-md text-body-md placeholder-on-surface-variant" placeholder="Search for schemes..." type="text">
+</div>
+<!-- Filter Categories -->
+<div class="flex flex-col gap-stack-sm">
+<label class="font-label-md text-label-md text-on-surface">State / Territory</label>
+<div class="relative">
+<select class="appearance-none w-full h-12 pl-4 pr-10 rounded-lg border border-outline-variant bg-surface-container-lowest text-on-surface font-body-md hover:border-primary focus:border-primary outline-none transition-premium cursor-pointer">
+<option value="">Select State</option>
+<option value="nsw">New South Wales</option>
+<option value="vic">Victoria</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-outline text-[20px]" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<div class="flex flex-col gap-stack-sm">
+<label class="font-label-md text-label-md text-on-surface">Scheme Category</label>
+<div class="relative">
+<select class="appearance-none w-full h-12 pl-4 pr-10 rounded-lg border border-outline-variant bg-surface-container-lowest text-on-surface font-body-md hover:border-primary focus:border-primary outline-none transition-premium cursor-pointer">
+<option value="">Select Category</option>
+<option value="education">Education</option>
+<option value="health">Healthcare</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-outline text-[20px]" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<!-- Active Filters -->
+<div class="flex flex-wrap gap-2 items-center pt-2">
+<div class="flex items-center gap-1 px-3 py-1.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm transition-premium hover:bg-opacity-80 cursor-pointer">
+                            Small Business
+                            <span class="material-symbols-outlined text-[16px]" data-icon="close">close</span>
+</div>
+<button class="font-label-sm text-label-sm text-primary hover:underline ml-2">Clear All</button>
+</div>
+</section>
+</div>
+<!-- Footer integrated into Left Pane for desktop -->
+
+</aside>
+<!-- Right Pane (Scrollable Results) -->
+<section class="flex-grow h-full overflow-y-auto bg-background">
+<div class="p-margin-mobile md:p-10 lg:p-14 max-w-[1200px] mx-auto flex flex-col gap-stack-lg">
+<!-- Results Header & Sort -->
+<div class="flex justify-between items-center">
+<h2 class="font-headline-md text-headline-md text-primary">Matching Schemes (12)</h2>
+<div class="relative">
+<select class="appearance-none h-10 pl-4 pr-10 rounded-lg border border-outline-variant bg-surface-container-lowest text-primary font-label-md text-label-md hover:bg-surface-container-high transition-premium cursor-pointer outline-none">
+<option value="match">Highest Match</option>
+<option value="newest">Newest First</option>
+<option value="closing">Closing Soon</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-primary text-[20px]" data-icon="sort">sort</span>
+</div>
+</div>
+<!-- Scheme Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter">
+<!-- Card 1 -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-[20px] p-stack-md flex flex-col gap-stack-sm ambient-shadow-1 hover:ambient-shadow-2 hover:-translate-y-1 transition-premium group relative">
+<div class="flex justify-between items-start">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-[#E8F5E9] text-[#2E7D32] font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px] mr-1" data-icon="check_circle" data-weight="fill">check_circle</span>
+                                98% Match
+                            </span>
+<button class="text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="bookmark_border">bookmark_border</span>
+</button>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2 line-clamp-2 group-hover:underline">Digital Adaptation Grant Program</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-3">
+                                Financial support for small businesses to build digital capability in their day-to-day operations. Covers software implementation, digital training, and e-commerce setups.
+                            </p>
+</div>
+<div class="flex flex-col gap-2 mt-auto pt-4 border-t border-surface-variant">
+<div class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]" data-icon="account_balance">account_balance</span>
+                                Dept. of Jobs, Precincts and Regions
+                            </div>
+<div class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]" data-icon="calendar_today">calendar_today</span>
+                                Closes: 30 Nov 2024
+                            </div>
+</div>
+<div class="mt-4 pt-2">
+<button class="w-full h-12 rounded-lg bg-primary text-on-primary font-label-md text-label-md hover:bg-opacity-90 transition-premium shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)] flex items-center justify-center gap-2">
+                                Apply Now
+                                <span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-[20px] p-stack-md flex flex-col gap-stack-sm ambient-shadow-1 hover:ambient-shadow-2 hover:-translate-y-1 transition-premium group relative">
+<div class="flex justify-between items-start">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-[#E3F2FD] text-[#1565C0] font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px] mr-1" data-icon="info" data-weight="fill">info</span>
+                                Possible Match
+                            </span>
+<button class="text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="bookmark_border">bookmark_border</span>
+</button>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2 line-clamp-2 group-hover:underline">Renewable Energy Setup Subsidy</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-3">
+                                Subsidies for residential properties transitioning to solar or wind energy. Aimed at reducing carbon footprint and supporting local clean energy initiatives.
+                            </p>
+</div>
+<div class="flex flex-col gap-2 mt-auto pt-4 border-t border-surface-variant">
+<div class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]" data-icon="account_balance">account_balance</span>
+                                Dept. of Energy &amp; Climate
+                            </div>
+<div class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]" data-icon="calendar_today">calendar_today</span>
+                                Ongoing
+                            </div>
+</div>
+<div class="mt-4 pt-2">
+<button class="w-full h-12 rounded-lg bg-surface-container text-primary font-label-md text-label-md hover:bg-surface-container-high transition-premium border border-outline-variant flex items-center justify-center gap-2">
+                                Check Eligibility
+                                <span class="material-symbols-outlined text-[18px]" data-icon="fact_check">fact_check</span>
+</button>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="bg-surface-container-lowest border border-outline-variant rounded-[20px] p-stack-md flex flex-col gap-stack-sm ambient-shadow-1 hover:ambient-shadow-2 hover:-translate-y-1 transition-premium group relative">
+<div class="flex justify-between items-start">
+<span class="inline-flex items-center px-2.5 py-1 rounded-full bg-[#E8F5E9] text-[#2E7D32] font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px] mr-1" data-icon="check_circle" data-weight="fill">check_circle</span>
+                                92% Match
+                            </span>
+<button class="text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="bookmark_border">bookmark_border</span>
+</button>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-primary mb-2 line-clamp-2 group-hover:underline">Mental Health Support Scheme</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-3">
+                                Comprehensive support for individuals seeking professional counseling and mental wellbeing resources through state-funded programs.
+                            </p>
+</div>
+<div class="flex flex-col gap-2 mt-auto pt-4 border-t border-surface-variant">
+<div class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]" data-icon="account_balance">account_balance</span>
+                                Health &amp; Human Services
+                            </div>
+<div class="flex items-center gap-2 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px]" data-icon="calendar_today">calendar_today</span>
+                                Closes: 15 Dec 2024
+                            </div>
+</div>
+<div class="mt-4 pt-2">
+<button class="w-full h-12 rounded-lg bg-primary text-on-primary font-label-md text-label-md hover:bg-opacity-90 transition-premium shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1)] flex items-center justify-center gap-2">
+                                Apply Now
+                                <span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</article>
+<!-- Skeleton for visual balance -->
+<article class="bg-surface-container-lowest border border-surface-variant rounded-[20px] p-stack-md flex flex-col gap-stack-sm ambient-shadow-1 animate-pulse">
+<div class="flex justify-between items-start">
+<div class="w-24 h-6 bg-surface-variant rounded-full"></div>
+<div class="w-6 h-6 bg-surface-variant rounded-full"></div>
+</div>
+<div class="mt-2 flex flex-col gap-2">
+<div class="w-3/4 h-8 bg-surface-variant rounded-md"></div>
+<div class="w-full h-4 bg-surface-variant rounded-md mt-2"></div>
+<div class="w-5/6 h-4 bg-surface-variant rounded-md"></div>
+</div>
+<div class="mt-auto pt-4 border-t border-surface-variant flex flex-col gap-3">
+<div class="w-1/2 h-4 bg-surface-variant rounded-md"></div>
+<div class="w-1/3 h-4 bg-surface-variant rounded-md"></div>
+</div>
+<div class="mt-4 pt-2">
+<div class="w-full h-12 bg-surface-variant rounded-lg"></div>
+</div>
+</article>
+</div>
+<!-- Pagination -->
+<div class="flex justify-center items-center gap-2 mt-stack-md pb-10">
+<button class="w-10 h-10 rounded-lg border border-outline-variant flex items-center justify-center text-on-surface-variant hover:border-primary hover:text-primary transition-colors disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded-lg bg-primary text-on-primary font-label-md flex items-center justify-center">1</button>
+<button class="w-10 h-10 rounded-lg border border-outline-variant flex items-center justify-center text-on-surface-variant hover:border-primary hover:text-primary transition-colors font-label-md">2</button>
+<button class="w-10 h-10 rounded-lg border border-outline-variant flex items-center justify-center text-on-surface-variant hover:border-primary hover:text-primary transition-colors font-label-md">3</button>
+<span class="text-on-surface-variant">...</span>
+<button class="w-10 h-10 rounded-lg border border-outline-variant flex items-center justify-center text-on-surface-variant hover:border-primary hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Mobile Footer (only visible when not split) -->
+
+
+
+</body></html>
