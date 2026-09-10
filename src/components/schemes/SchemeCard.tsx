@@ -48,7 +48,7 @@ export const SchemeCard = ({ id, matchPercentage, ministry, title, description, 
   const deadline = getDeadlineStatus(closes);
 
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-full mb-2 md:mb-0">
       <TiltedCard
         containerHeight="100%"
         containerWidth="100%"
@@ -60,7 +60,7 @@ export const SchemeCard = ({ id, matchPercentage, ministry, title, description, 
         showTooltip={false}
         displayOverlayContent={true}
         overlayContent={
-          <div className="card-item bg-card border border-border rounded-[20px] p-6 flex flex-col gap-3 shadow-[0px_10px_30px_rgba(34,34,34,0.05)] transition-all duration-300 group relative w-full h-full">
+          <div className="card-item bg-card border border-border rounded-[20px] p-5 md:p-6 flex flex-col gap-3 shadow-[0px_10px_30px_rgba(34,34,34,0.05)] transition-all duration-300 group relative w-full h-full">
             <div className="flex justify-between items-start mb-2">
               {matchPercentage !== undefined && tier ? (
                 <span
@@ -80,12 +80,12 @@ export const SchemeCard = ({ id, matchPercentage, ministry, title, description, 
             </div>
             
             <div>
-              <h3 className="text-[24px] font-semibold leading-[1.3] text-foreground mb-2 line-clamp-2 group-hover:underline">
+              <h3 className="text-[20px] md:text-[24px] font-semibold leading-[1.3] text-foreground mb-2 line-clamp-2 group-hover:underline">
                 <Link href={`/schemes/${id}`} className="focus:outline-none before:absolute before:inset-0">
                   {title}
                 </Link>
               </h3>
-              <p className="text-[16px] leading-[1.6] text-muted-foreground line-clamp-3">
+              <p className="text-[14px] md:text-[16px] leading-[1.6] text-muted-foreground line-clamp-3">
                 {description}
               </p>
             </div>

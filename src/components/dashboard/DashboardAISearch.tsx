@@ -149,46 +149,48 @@ export const DashboardAISearch = () => {
   return (
     <div className="w-full flex flex-col gap-4">
       {/* Input Area */}
-      <form onSubmit={handleSubmit} className="w-full relative z-10 bg-card rounded-[20px] shadow-sm border border-border focus-within:border-primary focus-within:ring-4 focus-within:ring-primary/10 transition-all p-1">
+      <form onSubmit={handleSubmit} className="w-full relative z-10 bg-card rounded-[24px] shadow-sm border border-border focus-within:border-primary/50 focus-within:ring-4 focus-within:ring-primary/10 transition-all flex flex-col">
         <textarea
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
           onKeyDown={handleKeyDown}
-          className="w-full bg-transparent border-none outline-none focus:outline-none focus:ring-0 focus:border-transparent resize-none font-medium text-[16px] text-foreground placeholder:text-muted-foreground/60 p-4 min-h-[80px]"
+          className="w-full bg-transparent border-none outline-none focus:outline-none focus:ring-0 focus:border-transparent resize-none font-medium text-[16px] text-foreground placeholder:text-muted-foreground/50 p-5 min-h-[120px]"
           placeholder={t('aiSearch.placeholder')}
-          rows={2}
+          rows={3}
         />
         
-        <div className="flex justify-between items-center p-2 border-t border-border bg-muted/30 rounded-b-[16px]">
-          <div className="flex items-center gap-2 px-2">
+        <div className="flex justify-between items-center px-4 pb-4">
+          <div className="flex items-center gap-2">
             <button 
               type="button" 
               onClick={toggleListen}
               disabled={isTranscribing}
-              className={`flex items-center gap-2 px-3 py-1.5 rounded-full text-[13px] font-semibold transition-all ${
+              className={`flex items-center gap-2 px-4 py-2 rounded-full text-[14px] font-medium transition-all ${
                 isListening ? 'bg-destructive/10 text-destructive border border-destructive/20 animate-pulse' 
                 : isTranscribing ? 'bg-amber-100 text-amber-700 border border-amber-200 dark:bg-amber-900/30 dark:text-amber-400 dark:border-amber-800'
-                : 'text-muted-foreground hover:bg-muted hover:text-foreground'
+                : 'text-muted-foreground bg-muted/50 hover:bg-muted hover:text-foreground border border-transparent'
               }`}
             >
-              <span className="material-symbols-outlined text-[18px]">
+              <span className="material-symbols-outlined text-[20px]">
                 {isListening ? 'mic' : isTranscribing ? 'hourglass_top' : 'mic_none'}
               </span>
-              {isListening ? t('aiSearch.stop') : isTranscribing ? t('aiSearch.transcribing') : t('aiSearch.speak')}
+              <span className="hidden sm:inline">
+                {isListening ? t('aiSearch.stop') : isTranscribing ? t('aiSearch.transcribing') : t('aiSearch.speak')}
+              </span>
             </button>
           </div>
           
           <button 
             type="submit"
             disabled={!prompt.trim() || isLoading}
-            className="bg-primary text-primary-foreground px-6 py-2 rounded-xl flex items-center justify-center font-semibold text-[14px] hover:bg-primary/90 transition-transform active:scale-95 shadow-sm disabled:opacity-50 disabled:active:scale-100 gap-2"
+            className="bg-primary text-primary-foreground p-3 md:px-6 md:py-2.5 rounded-full flex items-center justify-center font-semibold text-[15px] hover:bg-primary/90 transition-transform active:scale-95 shadow-sm disabled:opacity-50 disabled:active:scale-100 md:gap-2"
           >
             {isLoading ? (
               <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
             ) : (
               <>
-                {t('aiSearch.findSchemes')}
-                <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+                <span className="hidden md:inline">{t('aiSearch.findSchemes')}</span>
+                <span className="material-symbols-outlined text-[24px] md:text-[20px]">arrow_upward</span>
               </>
             )}
           </button>

@@ -23,7 +23,6 @@ export default function AppNavbar() {
     if (item.label === 'Dashboard') translatedLabel = t('nav.dashboard');
     else if (item.label === 'Browse Schemes') translatedLabel = t('nav.browseSchemes');
     else if (item.label === 'My Applications') translatedLabel = t('nav.myApplications');
-    else if (item.label === 'Compare') translatedLabel = t('nav.compare');
     else if (item.label === 'Saved Schemes') translatedLabel = t('nav.savedSchemes');
     else if (item.label === 'Profile') translatedLabel = t('nav.profileLabel');
     return { ...item, label: translatedLabel };
@@ -77,9 +76,11 @@ export default function AppNavbar() {
           </Link>
 
           <div className="flex items-center gap-4">
-            <div className="relative flex items-center gap-1 md:gap-2">
-              <ThemeToggle />
-              <LanguageToggle />
+            <div className="relative flex items-center gap-1 md:gap-4">
+              <div className="hidden md:flex items-center gap-2">
+                <ThemeToggle />
+                <LanguageToggle />
+              </div>
               <StaggeredMenu
                 position="right"
                 items={translatedNav}
@@ -89,18 +90,29 @@ export default function AppNavbar() {
                 openMenuButtonColor="var(--accent-foreground)"
                 changeMenuColorOnOpen={false}
                 colors={["var(--accent)", "var(--background)"]}
-                accentColor="var(--accent-foreground)"
                 isFixed={false}
               >
-                <form action={signOutAction} className="block md:hidden mt-auto">
-                  <button
-                    id="logout-button-mobile"
-                    type="submit"
-                    className="px-8 py-4 rounded-full text-lg font-medium text-primary-foreground bg-primary hover:bg-primary/90 transition-colors duration-300 w-full"
-                  >
-                    {t('nav.logout')}
-                  </button>
-                </form>
+                <div className="flex md:hidden flex-col gap-4 mt-auto w-full">
+                  <div className="flex flex-col gap-4 mb-6">
+                    <div className="flex items-center justify-between px-2">
+                      <span className="text-lg font-medium text-muted-foreground">Appearance</span>
+                      <ThemeToggle />
+                    </div>
+                    <div className="flex items-center justify-between px-2">
+                      <span className="text-lg font-medium text-muted-foreground">Language</span>
+                      <LanguageToggle />
+                    </div>
+                  </div>
+                  <form action={signOutAction}>
+                    <button
+                      id="logout-button-mobile"
+                      type="submit"
+                      className="px-8 py-4 rounded-full text-lg font-medium text-primary-foreground bg-primary hover:bg-primary/90 transition-colors duration-300 w-full"
+                    >
+                      {t('nav.logout')}
+                    </button>
+                  </form>
+                </div>
               </StaggeredMenu>
             </div>
             <form action={signOutAction} className="hidden md:block">

@@ -8,7 +8,7 @@ import { Suspense } from 'react'
 import { cookies } from 'next/headers'
 import { getAuthUser } from '@/lib/auth-cache'
 import { getUserAttributes } from '@/services/recommendation'
-import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle } from '@/components/ui/sheet'
+import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle, SheetClose } from '@/components/ui/sheet'
 
 export const metadata = {
   title: 'Browse Schemes | Eligify AI',
@@ -88,13 +88,20 @@ export default async function SchemesPage({
                 <span className="material-symbols-outlined">filter_list</span>
                 Filters
               </SheetTrigger>
-              <SheetContent side="bottom" className="h-[85vh] rounded-t-[24px] px-2 py-6 overflow-y-auto">
-                <SheetHeader className="px-4 pb-2">
+              <SheetContent side="bottom" className="h-[85vh] rounded-t-[24px] px-2 pt-6 pb-0 flex flex-col">
+                <SheetHeader className="px-4 pb-2 shrink-0">
                   <SheetTitle className="text-left text-xl">Filter Schemes</SheetTitle>
                 </SheetHeader>
-                <Suspense fallback={<div className="h-[400px] bg-white animate-pulse rounded-[24px]"></div>}>
-                  <SchemeFilters />
-                </Suspense>
+                <div className="flex-1 overflow-y-auto px-2">
+                  <Suspense fallback={<div className="h-[400px] bg-white animate-pulse rounded-[24px]"></div>}>
+                    <SchemeFilters />
+                  </Suspense>
+                </div>
+                <div className="shrink-0 p-4 border-t border-border bg-card">
+                  <SheetClose className="w-full h-14 bg-primary text-primary-foreground rounded-xl font-semibold text-[16px] shadow-sm hover:bg-primary/90 transition-colors">
+                    Show Results
+                  </SheetClose>
+                </div>
               </SheetContent>
             </Sheet>
           </div>

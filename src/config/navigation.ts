@@ -21,11 +21,6 @@ export const navigationMenu: NavigationItem[] = [
     link: "/my-applications",
   },
   {
-    label: "Compare",
-    ariaLabel: "Compare Schemes",
-    link: "/compare",
-  },
-  {
     label: "Saved Schemes",
     ariaLabel: "View saved schemes",
     link: "/saved",
