@@ -31,10 +31,8 @@ export async function updateSession(request: NextRequest) {
     data: { user: supabaseUser },
   } = await supabase.auth.getUser();
 
-  // In dev mode, also check for the mock auth cookie
-  const devMockAuth = process.env.NODE_ENV === 'development'
-    ? request.cookies.get('dev_mock_auth')?.value
-    : null;
+  // Also check for the mock auth cookie
+  const devMockAuth = request.cookies.get('dev_mock_auth')?.value;
 
   const user = supabaseUser || (devMockAuth ? { id: devMockAuth } : null);
 

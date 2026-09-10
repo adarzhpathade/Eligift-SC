@@ -39,26 +39,24 @@ export async function mobileAuthAction(
     }
     
     // DEMO BYPASS: Accept 123456 as the universal OTP
-    if (process.env.NODE_ENV === "development" && otp === "123456") {
+    if (otp === "123456") {
       const cookieStore = await cookies();
       cookieStore.set("dev_mock_auth", phone, { path: "/" });
       redirect("/onboarding");
     }
 
-    // Real Supabase verification (fallback if not in dev or if needed later)
-    if (process.env.NODE_ENV !== "development") {
-      const supabase = await createClient();
-      const { error } = await supabase.auth.verifyOtp({
-        phone,
-        token: otp,
-        type: 'sms'
-      });
-      
-      if (error) {
-        return { step: "OTP", phone, error: "Invalid OTP or OTP expired." };
-      }
-      redirect("/onboarding");
+    // Real Supabase verification (fallback if needed later)
+    const supabase = await createClient();
+    const { error } = await supabase.auth.verifyOtp({
+      phone,
+      token: otp,
+      type: 'sms'
+    });
+    
+    if (error) {
+      return { step: "OTP", phone, error: "Invalid OTP or OTP expired." };
     }
+    redirect("/onboarding");
     
     return { step: "OTP", phone, error: "Invalid OTP." };
   }
@@ -68,10 +66,9 @@ export async function mobileAuthAction(
 }
 
 export async function signOutAction() {
-  if (process.env.NODE_ENV === "development") {
-    const cookieStore = await cookies();
+  const cookieStore = await cookies();
+  if (cookieStore.get("dev_mock_auth")) {
     cookieStore.delete("dev_mock_auth");
-    redirect("/login");
   }
   const supabase = await createClient();
   await supabase.auth.signOut();

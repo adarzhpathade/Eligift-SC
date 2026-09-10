@@ -1,40 +1,39 @@
-# Memory — Server-side Localization & Engine Enhancements
+# Memory — My Applications Feature, Routing Slip UI, & Vercel Prep
 
-Last updated: 2026-09-10T07:23:00+05:30
+Last updated: 2026-09-10T09:22:00+05:30
 
 ## What was built
 
-- **Server-Side Localization**: Shifted from purely client-side translation to full-stack localization using Next.js `NEXT_LOCALE` cookies. 
-- **Database Schema**: Added `_hi` localized columns for scheme text fields to the Drizzle schema (`src/db/schema/index.ts`) and applied migrations.
-- **Scheme Pages**: Updated Server Components (`schemes/page.tsx`, `schemes/[id]/page.tsx`, `dashboard/page.tsx`) to dynamically map Hindi fields based on the cookie.
-- **New Schemes**: Added 3 new SC-beneficiary schemes (NSFDC Term Loan, Venture Capital Fund for SC, Stand-Up India) with full translations to the database seed files.
-- **Language Toggle**: Redesigned `LanguageToggle.tsx` into a segmented pill control (EN/HI) and fixed client hydration/state syncing issues.
-- **Eligibility Engine**: Modified the scoring algorithm in `src/services/recommendation.ts` (both SQL and JS implementations) to grant near-full credit to "universal" schemes. Universal schemes now score 97% instead of ~63%, ensuring users are not falsely told they are a "low match" for broadly applicable schemes.
-- **Git Push**: Initialized the project repository and pushed all changes to `origin/main` on GitHub (`adarzhpathade/Eligift-SC`).
+- **My Applications Page:** Created a fully functional `/my-applications` page that tracks all dossiers (loans) associated with the current user. Includes repayment progress visualization (SVG circular progress + linear bar), financial grid (EMI, interest, moratorium, amounts paid/remaining), and assigned branch info.
+- **Dossier Database Tracking:** Added `userId` column to `loanDossiers` (with FK to `profiles.userId` and a GIST index) to track applications by authenticated user, updating `generateDossier()` to populate it.
+- **Routing Slip UI Revamp:** Refactored `RoutingSlipClient.tsx` to be a client component to properly support a working Print/Download button. Improved styling (dark header band, QR code layout), widened the container to `max-w-5xl`, and added a "Get Directions" link straight to Google Maps.
+- **Dashboard Cleanup:** Removed the placeholder "Resume Application" feature in favor of showing the recommended schemes and saved schemes.
+- **Localization:** Added full English and Hindi translations for the `applications` namespace and fixed missing translations for "My Applications" in the top `AppNavbar.tsx`.
+- **Vercel Build Fix:** Added `export const dynamic = 'force-dynamic'` to the `/compare` page to prevent `CONNECT_TIMEOUT` issues with Supabase during Next.js static prerendering workers. 
+- **Git:** Committed and pushed everything to the `main` branch.
 
 ## Decisions made
 
-- Next.js server components read `next/headers` cookies (`NEXT_LOCALE`) for data fetching, meaning localization applies even before JavaScript loads on the client.
-- Universal eligibility constraints (e.g., no gender specified, no income limit) are rewarded rather than penalized, reflecting true eligibility while still allowing highly-targeted schemes to rank first with 100%.
+- Replaced the standalone "Find Me Scheme" page since AI search is now integrated into the Dashboard.
+- Repayment estimation logic is phase-aware: it detects if the user is in the moratorium phase (interest only) vs amortization (principal + interest) to accurately estimate how much has been paid so far vs what remains.
+- `/compare` is now server-rendered entirely on demand to bypass Vercel static build database connectivity issues to Supabase's pooler.
 
 ## Problems solved
 
-- Fixed a TypeScript syntax error (Unterminated template literal) in `recommendation.ts` caused by duplicate return statements during the algorithmic update.
-- Fixed the language switch initialization logic to properly persist and sync between server state (cookie) and client state (`i18next`).
+- The routing slip "Print Slip" button was completely broken because the inline script query selector (`button[onClick="window.print()"]`) didn't match the DOM. Fixed by rewriting it to a standard React `onClick` event in a Client Component.
+- The `AppNavbar` was missing the mapping for "My Applications", rendering the click dead or translation broken; added proper mapping logic.
+- Applied the SQL migration via a direct `tsx` script using `postgres` because `drizzle-kit push` failed on an older IPv6 loopback connection error.
 
 ## Current state
 
-- The app is successfully localizing server-fetched data and UI components between English and Hindi.
-- The recommendation engine is deterministic, accurate, and prioritizes specificity without failing broad schemes.
-- The repository is fully tracked and up to date on GitHub.
+- The application is robust, typed cleanly (`tsc --noEmit` passes), and compiles successfully for production (`npm run build`).
+- The Vercel deployment pipeline is ready.
+- The repository on GitHub is completely up to date.
 
 ## Next session starts with
 
-- Address the outstanding onboarding UI requests: 
-  - Auto-populate districts based on state selection in onboarding and capture full address.
-  - Automate partner branch routing entirely instead of asking the user to select a branch.
-  - Defer routing slip generation until "apply now" is clicked.
-  - Remove document verification forms and replace them with final loan terms input (just inform users what to carry).
+- Awaiting user input on what's next. The application is currently ready for deployment to Vercel. 
+- The earlier plan from previous sessions had mentioned onboarding changes (auto-populate district from state, auto-route branch instead of user selection, defer routing slip until "apply now"). This might be the next target if the user wishes.
 
 ## Open questions
 

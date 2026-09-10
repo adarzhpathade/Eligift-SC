@@ -27,29 +27,27 @@ export async function createClient() {
     }
   )
 
-  if (process.env.NODE_ENV === 'development') {
-    const mockPhone = cookieStore.get('dev_mock_auth')?.value;
-    if (mockPhone) {
-      // Generate deterministic UUID based on phone number
-      const cleanPhone = mockPhone.replace(/\D/g, '').padStart(12, '0').slice(-12);
-      const deterministicId = `00000000-0000-0000-0000-${cleanPhone}`;
-      
-      client.auth.getUser = async () => {
-        return {
-          data: {
-            user: {
-              id: deterministicId,
-              phone: mockPhone,
-              aud: 'authenticated',
-              created_at: new Date().toISOString(),
-              app_metadata: {},
-              user_metadata: {},
-            } as any
-          },
-          error: null
-        };
+  const mockPhone = cookieStore.get('dev_mock_auth')?.value;
+  if (mockPhone) {
+    // Generate deterministic UUID based on phone number
+    const cleanPhone = mockPhone.replace(/\D/g, '').padStart(12, '0').slice(-12);
+    const deterministicId = `00000000-0000-0000-0000-${cleanPhone}`;
+    
+    client.auth.getUser = async () => {
+      return {
+        data: {
+          user: {
+            id: deterministicId,
+            phone: mockPhone,
+            aud: 'authenticated',
+            created_at: new Date().toISOString(),
+            app_metadata: {},
+            user_metadata: {},
+          } as any
+        },
+        error: null
       };
-    }
+    };
   }
 
   return client;
