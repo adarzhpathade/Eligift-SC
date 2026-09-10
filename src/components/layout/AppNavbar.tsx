@@ -22,7 +22,7 @@ export default function AppNavbar() {
     let translatedLabel = item.label;
     if (item.label === 'Dashboard') translatedLabel = t('nav.dashboard');
     else if (item.label === 'Browse Schemes') translatedLabel = t('nav.browseSchemes');
-    else if (item.label === 'Find Me Scheme') translatedLabel = t('nav.findMeScheme');
+    else if (item.label === 'My Applications') translatedLabel = t('nav.myApplications');
     else if (item.label === 'Compare') translatedLabel = t('nav.compare');
     else if (item.label === 'Saved Schemes') translatedLabel = t('nav.savedSchemes');
     else if (item.label === 'Profile') translatedLabel = t('nav.profileLabel');

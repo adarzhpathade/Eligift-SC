@@ -67,20 +67,6 @@ export const DashboardContent = ({ firstName, recommendedSchemes, savedSchemes }
         </div>
       )}
 
-      <div className="lg:col-span-4 mt-8 mb-2">
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-[20px] md:text-[24px] font-semibold text-primary leading-tight flex items-center gap-2">
-            <span className="material-symbols-outlined text-muted-foreground">history_edu</span>
-            {t('dashboard.resumeApplication')}
-          </h2>
-        </div>
-        <div className="bg-card/50 border border-dashed border-border rounded-2xl p-8 flex flex-col items-center justify-center text-center">
-          <span className="material-symbols-outlined text-4xl text-muted-foreground/50 mb-3">post_add</span>
-          <h3 className="text-lg font-semibold text-foreground mb-1">{t('dashboard.noDrafts')}</h3>
-          <p className="text-muted-foreground text-sm max-w-md">{t('dashboard.noDraftsDesc')}</p>
-        </div>
-      </div>
-
       <div className="lg:col-span-4 mt-6">
         <SavedSchemesWidget schemes={savedSchemes} />
       </div>

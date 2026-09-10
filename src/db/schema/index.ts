@@ -154,6 +154,7 @@ export const partnerHealthMetrics = pgTable('partner_health_metrics', {
 export const loanDossiers = pgTable('loan_dossiers', {
   id: uuid('id').primaryKey().defaultRandom(),
   trackingCode: text('tracking_code').notNull().unique(),
+  userId: uuid('user_id').references(() => profiles.userId, { onDelete: 'set null' }),
   applicantName: text('applicant_name').notNull(),
   phoneHash: text('phone_hash').notNull(),
   annualIncome: numeric('annual_income').notNull(),
@@ -164,4 +165,7 @@ export const loanDossiers = pgTable('loan_dossiers', {
   selectedMoratorium: integer('selected_moratorium'),
   status: text('status').default('DOSSIER_GENERATED').notNull(),
   createdAt: timestamp('created_at').defaultNow().notNull(),
-})
+}, (table) => [
+  index('loan_dossiers_user_id_idx').on(table.userId),
+])
+

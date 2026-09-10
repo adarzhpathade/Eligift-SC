@@ -114,6 +114,7 @@ export async function generateDossier(
     // 5. Insert into Database
     await db.insert(loanDossiers).values({
       trackingCode,
+      userId: profile.userId,
       applicantName: profile.fullName,
       phoneHash,
       annualIncome: profile.annualIncome ? String(profile.annualIncome) : "0",

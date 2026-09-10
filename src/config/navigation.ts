@@ -16,9 +16,9 @@ export const navigationMenu: NavigationItem[] = [
     link: "/schemes",
   },
   {
-    label: "Find Me Scheme",
-    ariaLabel: "AI scheme discovery",
-    link: "/find-scheme",
+    label: "My Applications",
+    ariaLabel: "Track your scheme applications",
+    link: "/my-applications",
   },
   {
     label: "Compare",

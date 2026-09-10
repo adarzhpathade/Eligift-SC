@@ -4,6 +4,8 @@ import { getAllActiveSchemes } from '@/services/schemes'
 import { getAuthUser } from '@/lib/auth-cache'
 import { getUserAttributes, computeMatchScore } from '@/services/recommendation'
 
+export const dynamic = 'force-dynamic'
+
 export const metadata = {
   title: 'Compare Schemes | Eligify AI',
   description: 'Compare government schemes side by side to find the best fit.',
