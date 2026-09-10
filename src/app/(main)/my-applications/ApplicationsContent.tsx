@@ -105,12 +105,16 @@ function ApplicationCard({ app, t }: { app: ApplicationSummary; t: (key: string,
             {status.label}
           </span>
         </div>
-        <div className="flex items-center gap-3 text-[11px] text-muted-foreground font-mono">
-          <span className="material-symbols-outlined text-[13px]">tag</span>
-          {app.trackingCode}
-          <span className="text-border">•</span>
-          <span className="material-symbols-outlined text-[13px]">calendar_today</span>
-          {t('applications.appliedOn')} {createdDate}
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-[11px] text-muted-foreground font-mono">
+          <div className="flex items-center gap-1">
+            <span className="material-symbols-outlined text-[13px]">tag</span>
+            {app.trackingCode}
+          </div>
+          <span className="text-border hidden sm:inline">•</span>
+          <div className="flex items-center gap-1">
+            <span className="material-symbols-outlined text-[13px]">calendar_today</span>
+            {t('applications.appliedOn')} {createdDate}
+          </div>
         </div>
       </div>
 
@@ -142,7 +146,7 @@ function ApplicationCard({ app, t }: { app: ApplicationSummary; t: (key: string,
           <span className="text-[10px] text-muted-foreground/60 font-medium ml-auto">({t('applications.estimated')})</span>
         </div>
 
-        <div className="flex items-center gap-5">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-5">
           {/* Progress ring */}
           <div className="relative shrink-0">
             <ProgressRing percent={app.progressPercent} />
@@ -152,7 +156,7 @@ function ApplicationCard({ app, t }: { app: ApplicationSummary; t: (key: string,
           </div>
 
           {/* Amounts */}
-          <div className="flex-1 grid grid-cols-3 gap-3">
+          <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 gap-4">
             <div>
               <p className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider mb-0.5">{t('applications.totalRepayable')}</p>
               <p className="text-[14px] font-bold text-foreground">{formatCurrency(app.totalRepayable)}</p>
@@ -197,10 +201,10 @@ function ApplicationCard({ app, t }: { app: ApplicationSummary; t: (key: string,
       </div>
 
       {/* Action Bar */}
-      <div className="px-6 py-4 flex gap-3">
+      <div className="px-6 py-4 flex flex-col sm:flex-row gap-3 w-full">
         <Link
           href={`/dossiers/${app.trackingCode}`}
-          className="flex-1 h-11 rounded-xl bg-primary text-primary-foreground text-[13px] font-semibold flex items-center justify-center gap-2 hover:bg-primary/90 transition-all duration-200"
+          className="w-full sm:flex-1 h-11 rounded-xl bg-primary text-primary-foreground text-[13px] font-semibold flex items-center justify-center gap-2 hover:bg-primary/90 transition-all duration-200"
         >
           <span className="material-symbols-outlined text-[16px]">receipt_long</span>
           {t('applications.viewRoutingSlip')}
@@ -210,7 +214,7 @@ function ApplicationCard({ app, t }: { app: ApplicationSummary; t: (key: string,
             href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(app.partnerBank + ' ' + app.partnerBranch + ' ' + app.partnerAddress)}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="h-11 px-5 rounded-xl bg-secondary text-foreground text-[13px] font-semibold flex items-center gap-2 border border-border hover:bg-muted transition-all duration-200"
+            className="w-full sm:flex-1 h-11 rounded-xl bg-secondary text-foreground text-[13px] font-semibold flex items-center justify-center gap-2 border border-border hover:bg-muted transition-all duration-200"
           >
             <span className="material-symbols-outlined text-[16px]">directions</span>
             {t('applications.navigateToBranch')}
