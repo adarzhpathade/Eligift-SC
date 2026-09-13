@@ -40,11 +40,8 @@ export default async function DashboardPage() {
     }))
     savedSchemes = savedSchemes.map((s: any) => ({
       ...s,
-      scheme: {
-        ...s.scheme,
-        title: s.scheme.titleHi || s.scheme.title,
-        description: s.scheme.descriptionHi || s.scheme.description
-      }
+      title: s.titleHi || s.title,
+      description: s.descriptionHi || s.description
     }))
   }
 
